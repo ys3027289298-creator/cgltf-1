@@ -1,0 +1,135 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 3,
+      "min": [0, 0, 0],
+      "max": [1, 1, 0]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 3
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 3
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "type": "SCALAR",
+      "count": 2,
+      "min": [0],
+      "max": [1]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "type": "SCALAR",
+      "count": 4
+    }
+  ],
+  "asset": {
+    "generator": "cgltf morph acceptance",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 36
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36,
+      "byteOffset": 36
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36,
+      "byteOffset": 72
+    },
+    {
+      "buffer": 0,
+      "byteLength": 8,
+      "byteOffset": 108
+    },
+    {
+      "buffer": 0,
+      "byteLength": 16,
+      "byteOffset": 116
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "data:application/octet-stream;base64,AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAM3MzD0AAAAAAAAAAM3MTD4AAAAAAAAAAM3MzD0AAAAAAAAAAM3MzL0AAAAAAAAAAM3MTL4AAAAAAAAAAM3MzL0AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/",
+      "byteLength": 132
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Face",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0
+          },
+          "targets": [
+            {
+              "POSITION": 1
+            },
+            {
+              "POSITION": 2
+            }
+          ]
+        }
+      ],
+      "weights": [0.25, 0.75],
+      "extras": {
+        "targetNames": [
+          "Smile",
+          "Frown"
+        ]
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Character",
+      "weights": [0.25, 0.75]
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [ 0 ]
+    }
+  ],
+  "animations": [
+    {
+      "name": "Expressions",
+      "samplers": [
+        {
+          "interpolation": "LINEAR",
+          "input": 3,
+          "output": 4
+        }
+      ],
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "weights"
+          }
+        }
+      ]
+    }
+  ]
+}

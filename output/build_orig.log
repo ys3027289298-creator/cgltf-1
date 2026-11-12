@@ -1,0 +1,18 @@
+[  8%] Building C object CMakeFiles/cgltf_test.dir/main.c.o
+[ 16%] Building CXX object CMakeFiles/test_conversion.dir/test_conversion.cpp.o
+[ 25%] Building CXX object CMakeFiles/test_strings.dir/test_strings.cpp.o
+[ 33%] Building CXX object CMakeFiles/test_math.dir/test_math.cpp.o
+[ 41%] Building CXX object CMakeFiles/test_write_glb.dir/test_write_glb.cpp.o
+[ 50%] Building CXX object CMakeFiles/test_write.dir/test_write.cpp.o
+[ 58%] Linking CXX executable test_strings
+[ 66%] Linking CXX executable test_math
+[ 66%] Built target test_strings
+[ 66%] Built target test_math
+[ 75%] Linking C executable cgltf_test
+[ 83%] Linking CXX executable test_conversion
+[ 83%] Built target cgltf_test
+[ 83%] Built target test_conversion
+[ 91%] Linking CXX executable test_write
+[ 91%] Built target test_write
+[100%] Linking CXX executable test_write_glb
+[100%] Built target test_write_glb

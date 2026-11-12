@@ -1,0 +1,29 @@
+== 1. parse keeps targets & weights ==
+Result: 0
+Type: 1
+Meshes: 1
+Mesh 0 morph targets: 2
+Mesh 0 target names: Smile Frown
+Mesh 0 weights: 0.25 0.75
+Node 0 weights: 0.25 0.75
+Animation 0 morph channel: node 0, 2 keys, 2 weights per key
+exit=0
+
+== 2. round-trip via test_write ==
+exit=0
+Result: 0
+Type: 1
+Meshes: 1
+Mesh 0 morph targets: 2
+Mesh 0 target names: Smile Frown
+Mesh 0 weights: 0.25 0.75
+Node 0 weights: 0.25 0.75
+Animation 0 morph channel: node 0, 2 keys, 2 weights per key
+exit=0
+
+== 3. mismatched weights rejected ==
+Result: 4
+exit=4
+
+== 4. no-morph file zero diff ==
+ZERO DIFF

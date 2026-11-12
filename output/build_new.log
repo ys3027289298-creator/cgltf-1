@@ -1,0 +1,10 @@
+[ 50%] Building C object CMakeFiles/cgltf_test.dir/main.c.o
+[ 50%] Building CXX object CMakeFiles/test_write.dir/test_write.cpp.o
+[ 50%] Built target test_math
+[ 50%] Built target test_conversion
+[ 66%] Built target test_strings
+[ 83%] Built target test_write_glb
+[ 91%] Linking C executable cgltf_test
+[ 91%] Built target cgltf_test
+[100%] Linking CXX executable test_write
+[100%] Built target test_write
