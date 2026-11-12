@@ -1,0 +1,12 @@
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/cgltf_test.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/test_conversion.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/test_write.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/test_write_glb.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/test_math.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/test_strings.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/edit_cache.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/rebuild_cache.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/list_install_components.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/install.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/install/local.dir
+/home/ys/feedback/uidreczz28Ypc2VIsHh/test/build/CMakeFiles/install/strip.dir

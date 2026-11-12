@@ -101,6 +101,7 @@ typedef struct {
 	int depth;
 	const char* indent;
 	int needs_comma;
+	int is_glb;
 	uint32_t extension_flags;
 	uint32_t required_extension_flags;
 } cgltf_write_context;
@@ -590,7 +591,12 @@ static void cgltf_write_buffer(cgltf_write_context* context, const cgltf_buffer*
 {
 	cgltf_write_line(context, "{");
 	cgltf_write_strprop(context, "name", buffer->name);
-	cgltf_write_strprop(context, "uri", buffer->uri);
+	// The GLB binary chunk backs buffers[0]; the GLB spec forbids a "uri"
+	// property on that buffer. External buffers keep their URIs.
+	if (!(context->is_glb && context->data->buffers_count && buffer == context->data->buffers))
+	{
+		cgltf_write_strprop(context, "uri", buffer->uri);
+	}
 	cgltf_write_sizeprop(context, "byteLength", buffer->size, (cgltf_size)-1);
 	cgltf_write_extras(context, &buffer->extras);
 	cgltf_write_line(context, "}");
@@ -1201,7 +1207,7 @@ static void cgltf_write_variant(cgltf_write_context* context, const cgltf_materi
 	cgltf_write_line(context, "}");
 }
 
-static void cgltf_write_glb(FILE* file, const void* json_buf, const cgltf_size json_size, const void* bin_buf, const cgltf_size bin_size)
+static cgltf_result cgltf_write_glb(FILE* file, const void* json_buf, const cgltf_size json_size, const void* bin_buf, const cgltf_size bin_size)
 {
 	char header[GlbHeaderSize];
 	char chunk_header[GlbChunkHeaderSize];
@@ -1215,56 +1221,143 @@ static void cgltf_write_glb(FILE* file, const void* json_buf, const cgltf_size j
 		total_size += GlbChunkHeaderSize + bin_size + bin_padsize;
 	}
 
+	// Every length stored in the GLB container is a uint32; reject inputs that
+	// cannot be represented instead of silently truncating the headers.
+	if (json_size > UINT32_MAX - json_padsize
+		|| bin_size > UINT32_MAX - bin_padsize
+		|| total_size > UINT32_MAX)
+	{
+		return cgltf_result_invalid_gltf;
+	}
+
 	// Write a GLB header
 	memcpy(header, &GlbMagic, 4);
 	memcpy(header + 4, &GlbVersion, 4);
 	memcpy(header + 8, &total_size, 4);
-	fwrite(header, 1, GlbHeaderSize, file);
+	if (fwrite(header, 1, GlbHeaderSize, file) != GlbHeaderSize)
+	{
+		return cgltf_result_io_error;
+	}
 
 	// Write a JSON chunk (header & data)
 	uint32_t json_chunk_size = (uint32_t)(json_size + json_padsize);
 	memcpy(chunk_header, &json_chunk_size, 4);
 	memcpy(chunk_header + 4, &GlbMagicJsonChunk, 4);
-	fwrite(chunk_header, 1, GlbChunkHeaderSize, file);
-
-	fwrite(json_buf, 1, json_size, file);
-	fwrite(json_pad, 1, json_padsize, file);
+	if (fwrite(chunk_header, 1, GlbChunkHeaderSize, file) != GlbChunkHeaderSize
+		|| fwrite(json_buf, 1, json_size, file) != json_size
+		|| fwrite(json_pad, 1, json_padsize, file) != json_padsize)
+	{
+		return cgltf_result_io_error;
+	}
 
 	if (bin_buf != NULL && bin_size > 0) {
 		// Write a binary chunk (header & data)
 		uint32_t bin_chunk_size = (uint32_t)(bin_size + bin_padsize);
 		memcpy(chunk_header, &bin_chunk_size, 4);
 		memcpy(chunk_header + 4, &GlbMagicBinChunk, 4);
-		fwrite(chunk_header, 1, GlbChunkHeaderSize, file);
+		if (fwrite(chunk_header, 1, GlbChunkHeaderSize, file) != GlbChunkHeaderSize
+			|| fwrite(bin_buf, 1, bin_size, file) != bin_size
+			|| fwrite(bin_pad, 1, bin_padsize, file) != bin_padsize)
+		{
+			return cgltf_result_io_error;
+		}
 
-		fwrite(bin_buf, 1, bin_size, file);
-		fwrite(bin_pad, 1, bin_padsize, file);
+		if (fflush(file) != 0)
+		{
+			return cgltf_result_io_error;
+		}
 	}
+
+	return cgltf_result_success;
 }
 
 cgltf_result cgltf_write_file(const cgltf_options* options, const char* path, const cgltf_data* data)
 {
+	if (options == NULL || path == NULL || data == NULL)
+	{
+		return cgltf_result_invalid_options;
+	}
+
+	if (options->type != cgltf_file_type_invalid && options->type != cgltf_file_type_gltf && options->type != cgltf_file_type_glb)
+	{
+		return cgltf_result_invalid_options;
+	}
+
+	const void* bin_buf = data->bin;
+	cgltf_size bin_size = data->bin_size;
+
+	if (options->type == cgltf_file_type_glb && bin_buf == NULL && data->buffers_count)
+	{
+		// Data parsed from a .gltf plus cgltf_load_buffers() keeps the bytes in
+		// buffers[0].data rather than data->bin; promote them to the GLB chunk.
+		bin_buf = data->buffers[0].data;
+		bin_size = data->buffers[0].size;
+
+		if (bin_buf == NULL)
+		{
+			// A GLB is a single self-contained file; a buffer whose bytes are
+			// neither embedded nor loaded cannot be represented in one.
+			return cgltf_result_invalid_gltf;
+		}
+	}
+
 	cgltf_size expected = cgltf_write(options, NULL, 0, data);
+	if (expected == 0)
+	{
+		return cgltf_result_invalid_gltf;
+	}
+
 	char* buffer = (char*) malloc(expected);
+	if (buffer == NULL)
+	{
+		return cgltf_result_out_of_memory;
+	}
 	cgltf_size actual = cgltf_write(options, buffer, expected, data);
 	if (expected != actual) {
 		fprintf(stderr, "Error: expected %zu bytes but wrote %zu bytes.\n", expected, actual);
+		free(buffer);
+		return cgltf_result_io_error;
 	}
 	FILE* file = fopen(path, "wb");
 	if (!file)
 	{
+		free(buffer);
 		return cgltf_result_file_not_found;
 	}
+
+	cgltf_result result;
 	// Note that cgltf_write() includes a null terminator, which we omit from the file content.
 	if (options->type == cgltf_file_type_glb) {
-		cgltf_write_glb(file, buffer, actual - 1, data->bin, data->bin_size);
+		result = cgltf_write_glb(file, buffer, actual - 1, bin_buf, bin_size);
 	} else {
 		// Write a plain JSON file.
-		fwrite(buffer, actual - 1, 1, file);
+		if (fwrite(buffer, actual - 1, 1, file) != 1)
+		{
+			result = cgltf_result_io_error;
+		}
+		else if (fflush(file) != 0)
+		{
+			result = cgltf_result_io_error;
+		}
+		else
+		{
+			result = cgltf_result_success;
+		}
 	}
-	fclose(file);
+
+	if (fclose(file) != 0 && result == cgltf_result_success)
+	{
+		result = cgltf_result_io_error;
+	}
 	free(buffer);
-	return cgltf_result_success;
+
+	if (result != cgltf_result_success)
+	{
+		// Never leave a partially written, unreadable file behind.
+		remove(path);
+	}
+
+	return result;
 }
 
 static void cgltf_write_extensions(cgltf_write_context* context, uint32_t extension_flags)
@@ -1344,6 +1437,7 @@ cgltf_size cgltf_write(const cgltf_options* options, char* buffer, cgltf_size si
 	ctx.depth = 1;
 	ctx.indent = "  ";
 	ctx.needs_comma = 0;
+	ctx.is_glb = (options != NULL && options->type == cgltf_file_type_glb);
 	ctx.extension_flags = 0;
 	ctx.required_extension_flags = 0;
 

@@ -1,0 +1,2910 @@
+CMake Warning (dev) in CMakeLists.txt:
+  No project() command is present.  The top-level CMakeLists.txt file must
+  contain a literal, direct call to the project() command.  Add a line of
+  code such as
+
+    project(ProjectName)
+
+  near the top of the file, but after cmake_minimum_required().
+
+  CMake is pretending there is a "project(Project)" command on the first
+  line.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ys/feedback/uidreczz28Ypc2VIsHh/test/build
+[ 16%] Built target cgltf_test
+[ 33%] Built target test_conversion
+[ 50%] Built target test_write
+[ 66%] Built target test_write_glb
+[ 83%] Built target test_math
+[100%] Built target test_strings
+Result: 0
+Type: 2
+Meshes: 42
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 4
+Result: 0
+Type: 2
+Meshes: 109
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 24
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 10
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 13
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 14
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 29
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 102
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 22
+Result: 0
+Type: 2
+Meshes: 5
+Result: 0
+Type: 2
+Meshes: 9
+Result: 0
+Type: 2
+Meshes: 6
+Result: 0
+Type: 2
+Meshes: 65
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 18
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 5
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 9
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 4
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 8
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 135
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 10
+Result: 0
+Type: 2
+Meshes: 29
+Result: 0
+Type: 2
+Meshes: 2
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 4
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 2
+Meshes: 3
+Result: 0
+Type: 2
+Meshes: 27
+Result: 0
+Type: 2
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 42
+Result: 0
+Type: 1
+Meshes: 42
+Result: 0
+Type: 1
+Meshes: 42
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 4
+Result: 0
+Type: 1
+Meshes: 109
+Result: 0
+Type: 1
+Meshes: 109
+Result: 0
+Type: 1
+Meshes: 109
+Result: 0
+Type: 1
+Meshes: 11
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 1
+### cgltf_test glTF-Sample-Models/2.0/GearboxAssy/glTF-Binary/GearboxAssy.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/GlamVelvetSofa/glTF-Binary/GlamVelvetSofa.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescentDishWithOlives/glTF-Binary/IridescentDishWithOlives.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Buggy/glTF-Binary/Buggy.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureLinearInterpolationTest/glTF-Binary/TextureLinearInterpolationTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MaterialsVariantsShoe/glTF-Binary/MaterialsVariantsShoe.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescenceLamp/glTF-Binary/IridescenceLamp.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearCoatCarPaint/glTF-Binary/ClearCoatCarPaint.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SpecularTest/glTF-Binary/SpecularTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MorphStressTest/glTF-Binary/MorphStressTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureSettingsTest/glTF-Binary/TextureSettingsTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VertexColorTest/glTF-Binary/VertexColorTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/OrientationTest/glTF-Binary/OrientationTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/WaterBottle/glTF-Binary/WaterBottle.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureEncodingTest/glTF-Binary/TextureEncodingTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxAnimated/glTF-Binary/BoxAnimated.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AntiqueCamera/glTF-Binary/AntiqueCamera.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedMorphSphere/glTF-Binary/AnimatedMorphSphere.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ToyCar/glTF-Binary/ToyCar.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SuzanneMorphSparse/glTF-Binary/SuzanneMorphSparse.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureTransformMultiTest/glTF-Binary/TextureTransformMultiTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RecursiveSkeletons/glTF-Binary/RecursiveSkeletons.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BarramundiFish/glTF-Binary/BarramundiFish.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Binary/CesiumMilkTruck.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MetalRoughSpheresNoTextures/glTF-Binary/MetalRoughSpheresNoTextures.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/XmpMetadataRoundedCube/glTF-Binary/xmp.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedFigure/glTF-Binary/RiggedFigure.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TransmissionTest/glTF-Binary/TransmissionTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureCoordinateTest/glTF-Binary/TextureCoordinateTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF-Binary/AlphaBlendModeTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/EmissiveStrengthTest/glTF-Binary/EmissiveStrengthTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Binary/ReciprocatingSaw.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Fox/glTF-Binary/Fox.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AttenuationTest/glTF-Binary/AttenuationTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/UnlitTest/glTF-Binary/UnlitTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearcoatWicker/glTF-Binary/ClearcoatWicker.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MetalRoughSpheres/glTF-Binary/MetalRoughSpheres.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF-Binary/BoxTexturedNonPowerOfTwo.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedSimple/glTF-Binary/RiggedSimple.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Lantern/glTF-Binary/Lantern.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/LightsPunctualLamp/glTF-Binary/LightsPunctualLamp.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Corset/glTF-Binary/Corset.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TransmissionRoughnessTest/glTF-Binary/TransmissionRoughnessTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NormalTangentTest/glTF-Binary/NormalTangentTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DirectionalLight/glTF-Binary/DirectionalLight.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SheenChair/glTF-Binary/SheenChair.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CarbonFibre/glTF-Binary/CarbonFibre.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF-Binary/NormalTangentMirrorTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DamagedHelmet/glTF-Binary/DamagedHelmet.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Avocado/glTF-Binary/Avocado.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MultiUVTest/glTF-Binary/MultiUVTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxVertexColors/glTF-Binary/BoxVertexColors.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Box/glTF-Binary/Box.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NegativeScaleTest/glTF-Binary/NegativeScaleTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoomBox/glTF-Binary/BoomBox.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VC/glTF-Binary/VC.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BrainStem/glTF-Binary/BrainStem.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF-Binary/MorphPrimitivesTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedMorphCube/glTF-Binary/AnimatedMorphCube.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMan/glTF-Binary/CesiumMan.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescenceSuzanne/glTF-Binary/IridescenceSuzanne.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Duck/glTF-Binary/Duck.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/InterpolationTest/glTF-Binary/InterpolationTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/2CylinderEngine/glTF-Binary/2CylinderEngine.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DragonAttenuation/glTF-Binary/DragonAttenuation.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxTextured/glTF-Binary/BoxTextured.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SpecGlossVsMetalRough/glTF-Binary/SpecGlossVsMetalRough.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleInstancing/glTF-Binary/SimpleInstancing.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MosquitoInAmber/glTF-Binary/MosquitoInAmber.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearCoatTest/glTF-Binary/ClearCoatTest.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxInterleaved/glTF-Binary/BoxInterleaved.glb
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/GearboxAssy/glTF/GearboxAssy.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/GearboxAssy/glTF-Draco/GearboxAssy.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/GearboxAssy/glTF-Embedded/GearboxAssy.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/GlamVelvetSofa/glTF/GlamVelvetSofa.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescentDishWithOlives/glTF/IridescentDishWithOlives.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Buggy/glTF/Buggy.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Buggy/glTF-Draco/Buggy.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Buggy/glTF-Embedded/Buggy.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SheenDamask/glTF/SheenDamask.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureLinearInterpolationTest/glTF/TextureLinearInterpolationTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MaterialsVariantsShoe/glTF/MaterialsVariantsShoe.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescenceLamp/glTF/IridescenceLamp.gltfResult: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 24
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 10
+Result: 0
+Type: 1
+Meshes: 10
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 13
+Result: 0
+Type: 1
+Meshes: 13
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 7
+Result: 0
+Type: 1
+Meshes: 7
+Result: 0
+Type: 1
+Meshes: 14
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 29
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 6
+Result: 0
+Type: 1
+Meshes: 6
+Result: 0
+Type: 1
+Meshes: 102
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 22
+Result: 0
+Type: 1
+Meshes: 5
+Result: 0
+Type: 1
+Meshes: 5
+Result: 0
+Type: 1
+Meshes: 9
+Result: 0
+Type: 1
+Meshes: 9
+Result: 0
+Type: 1
+Meshes: 6
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 65
+Result: 0
+Type: 1
+Meshes: 65
+Result: 0
+Type: 1
+Meshes: 65
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 8
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 18
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 346
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 25
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 5
+Result: 0
+Type: 1
+Meshes: 5
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 9
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 9
+
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearCoatCarPaint/glTF/ClearCoatCarPaint.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SpecularTest/glTF/SpecularTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleMeshes/glTF/SimpleMeshes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleMeshes/glTF-Embedded/SimpleMeshes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MorphStressTest/glTF/MorphStressTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureSettingsTest/glTF/TextureSettingsTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureSettingsTest/glTF-Embedded/TextureSettingsTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VertexColorTest/glTF/VertexColorTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VertexColorTest/glTF-Embedded/VertexColorTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/OrientationTest/glTF/OrientationTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/OrientationTest/glTF-Embedded/OrientationTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/WaterBottle/glTF/WaterBottle.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/WaterBottle/glTF-Draco/WaterBottle.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MeshPrimitiveModes/glTF/MeshPrimitiveModes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MeshPrimitiveModes/glTF-Embedded/MeshPrimitiveModes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureEncodingTest/glTF/TextureEncodingTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxAnimated/glTF/BoxAnimated.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxAnimated/glTF-Embedded/BoxAnimated.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MultipleScenes/glTF/MultipleScenes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MultipleScenes/glTF-Embedded/MultipleScenes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AntiqueCamera/glTF/AntiqueCamera.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedMorphSphere/glTF/AnimatedMorphSphere.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ToyCar/glTF/ToyCar.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SuzanneMorphSparse/glTF/SuzanneMorphSparse.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureTransformMultiTest/glTF/TextureTransformMultiTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RecursiveSkeletons/glTF/RecursiveSkeletons.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BarramundiFish/glTF/BarramundiFish.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BarramundiFish/glTF-Draco/BarramundiFish.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleSparseAccessor/glTF/SimpleSparseAccessor.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleSparseAccessor/glTF-Embedded/SimpleSparseAccessor.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMilkTruck/glTF/CesiumMilkTruck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Draco/CesiumMilkTruck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Sponza/glTF/Sponza.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/FlightHelmet/glTF/FlightHelmet.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/FlightHelmet/glTF-KTX-BasisU/FlightHelmet.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MetalRoughSpheresNoTextures/glTF/MetalRoughSpheresNoTextures.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/XmpMetadataRoundedCube/glTF/xmp.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedFigure/glTF/RiggedFigure.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedFigure/glTF-Draco/RiggedFigure.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedFigure/glTF-Embedded/RiggedFigure.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TransmissionTest/glTF/TransmissionTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureCoordinateTest/glTF/TextureCoordinateTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureCoordinateTest/glTF-Embedded/TextureCoordinateTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF/AlphaBlendModeTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF-Embedded/AlphaBlendModeTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/EmissiveStrengthTest/glTF/EmissiveStrengthTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearcoatRing/glTF/ClearcoatRing.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ReciprocatingSaw/glTF/ReciprocatingSaw.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Draco/ReciprocatingSaw.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Embedded/ReciprocatingSaw.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Cube/glTF/Cube.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SheenHighHeel/glTF/SheenHighHeel.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Fox/glTF/Fox.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AttenuationTest/glTF/AttenuationTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/UnlitTest/glTF/UnlitTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescenceMetallicSpheres/glTF/IridescenceMetallicSpheres.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleMorph/glTF/SimpleMorph.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleMorph/glTF-Embedded/SimpleMorph.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/EnvironmentTest/glTF/EnvironmentTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/EnvironmentTest/glTF-IBL/EnvironmentTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/PrimitiveModeNormalsTest/glTF/PrimitiveModeNormalsTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearcoatWicker/glTF/ClearcoatWicker.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MetalRoughSpheres/glTF/MetalRoughSpheres.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MetalRoughSpheres/glTF-Embedded/MetalRoughSpheres.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF/BoxTexturedNonPowerOfTwo.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF-Embedded/BoxTexturedNonPowerOfTwo.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleSkin/glTF/SimpleSkin.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleSkin/glTF-Embedded/SimpleSkin.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedSimple/glTF/RiggedSimple.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedSimple/glTF-Draco/RiggedSimple.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/RiggedSimple/glTF-Embedded/RiggedSimple.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Lantern/glTF/Lantern.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Lantern/glTF-Quantized/Lantern.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Lantern/glTF-Draco/Lantern.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TextureTransformTest/glTF/TextureTransformTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/LightsPunctualLamp/glTF/LightsPunctualLamp.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Corset/glTF/Corset.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Corset/glTF-Draco/Corset.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedTriangle/glTF/AnimatedTriangle.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedTriangle/glTF-Embedded/AnimatedTriangle.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TransmissionRoughnessTest/glTF/TransmissionRoughnessTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TriangleWithoutIndices/glTF/TriangleWithoutIndices.gltfResult: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 4
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 8
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 135
+Result: 0
+Type: 1
+Meshes: 135
+Result: 0
+Type: 1
+Meshes: 135
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 8
+Result: 0
+Type: 1
+Meshes: 8
+Result: 0
+Type: 1
+Meshes: 8
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 10
+Result: 0
+Type: 1
+Meshes: 29
+Result: 0
+Type: 1
+Meshes: 29
+Result: 0
+Type: 1
+Meshes: 29
+Result: 0
+Type: 1
+Meshes: 5
+Result: 0
+Type: 1
+Meshes: 15
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 2
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 4
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 346
+Result: 0
+Type: 1
+Meshes: 3
+Result: 0
+Type: 1
+Meshes: 27
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+Result: 0
+Type: 1
+Meshes: 1
+
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TriangleWithoutIndices/glTF-Embedded/TriangleWithoutIndices.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NormalTangentTest/glTF/NormalTangentTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NormalTangentTest/glTF-Embedded/NormalTangentTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DirectionalLight/glTF/DirectionalLight.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SheenChair/glTF/SheenChair.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TwoSidedPlane/glTF/TwoSidedPlane.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CarbonFibre/glTF/CarbonFibre.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF/NormalTangentMirrorTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF-Embedded/NormalTangentMirrorTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DamagedHelmet/glTF-Embedded/DamagedHelmet.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Cameras/glTF/Cameras.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Cameras/glTF-Embedded/Cameras.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Avocado/glTF/Avocado.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Avocado/glTF-Quantized/Avocado.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Avocado/glTF-Draco/Avocado.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MultiUVTest/glTF/MultiUVTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MultiUVTest/glTF-Embedded/MultiUVTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Triangle/glTF/Triangle.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Triangle/glTF-Embedded/Triangle.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SheenCloth/glTF/SheenCloth.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxVertexColors/glTF/BoxVertexColors.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxVertexColors/glTF-Embedded/BoxVertexColors.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Box/glTF/Box.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Box/glTF-Draco/Box.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Box/glTF-Embedded/Box.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Box With Spaces/glTF/Box With Spaces.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Suzanne/glTF/Suzanne.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/NegativeScaleTest/glTF/NegativeScaleTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoomBox/glTF/BoomBox.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoomBox/glTF-Draco/BoomBox.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VC/glTF/VC.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VC/glTF-Draco/VC.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/VC/glTF-Embedded/VC.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BrainStem/glTF-Draco/BrainStem.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BrainStem/glTF-Meshopt/BrainStem.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BrainStem/glTF-Embedded/BrainStem.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/StainedGlassLamp/glTF/StainedGlassLamp.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/StainedGlassLamp/glTF-KTX-BasisU/StainedGlassLamp.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF/MorphPrimitivesTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF-Draco/MorphPrimitivesTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedMorphCube/glTF/AnimatedMorphCube.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedMorphCube/glTF-Quantized/AnimatedMorphCube.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMan/glTF/CesiumMan.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMan/glTF-Draco/CesiumMan.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/CesiumMan/glTF-Embedded/CesiumMan.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescenceSuzanne/glTF/IridescenceSuzanne.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Duck/glTF/Duck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Duck/glTF-Quantized/Duck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Duck/glTF-Draco/Duck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/Duck/glTF-Embedded/Duck.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/InterpolationTest/glTF/InterpolationTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/2CylinderEngine/glTF/2CylinderEngine.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/2CylinderEngine/glTF-Draco/2CylinderEngine.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/2CylinderEngine/glTF-Embedded/2CylinderEngine.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoomBoxWithAxes/glTF/BoomBoxWithAxes.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ABeautifulGame/glTF/ABeautifulGame.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DragonAttenuation/glTF/DragonAttenuation.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/DragonAttenuation/glTF-Meshopt/DragonAttenuation.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxTextured/glTF/BoxTextured.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxTextured/glTF-Embedded/BoxTextured.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SpecGlossVsMetalRough/glTF/SpecGlossVsMetalRough.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearcoatSphere/glTF/ClearcoatSphere.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/SimpleInstancing/glTF/SimpleInstancing.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/IridescenceDielectricSpheres/glTF/IridescenceDielectricSpheres.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/MosquitoInAmber/glTF/MosquitoInAmber.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/ClearCoatTest/glTF/ClearCoatTest.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/TransmissionSuzanne/glTF/TransmissionSuzanne.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxInterleaved/glTF/BoxInterleaved.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/BoxInterleaved/glTF-Embedded/BoxInterleaved.gltf
+### Result: 0
+
+### cgltf_test glTF-Sample-Models/2.0/AnimatedCube/glTF/AnimatedCube.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/GearboxAssy/glTF-Binary/GearboxAssy.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/GlamVelvetSofa/glTF-Binary/GlamVelvetSofa.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescentDishWithOlives/glTF-Binary/IridescentDishWithOlives.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Buggy/glTF-Binary/Buggy.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureLinearInterpolationTest/glTF-Binary/TextureLinearInterpolationTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MaterialsVariantsShoe/glTF-Binary/MaterialsVariantsShoe.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescenceLamp/glTF-Binary/IridescenceLamp.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearCoatCarPaint/glTF-Binary/ClearCoatCarPaint.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SpecularTest/glTF-Binary/SpecularTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MorphStressTest/glTF-Binary/MorphStressTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureSettingsTest/glTF-Binary/TextureSettingsTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VertexColorTest/glTF-Binary/VertexColorTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/OrientationTest/glTF-Binary/OrientationTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/WaterBottle/glTF-Binary/WaterBottle.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureEncodingTest/glTF-Binary/TextureEncodingTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxAnimated/glTF-Binary/BoxAnimated.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AntiqueCamera/glTF-Binary/AntiqueCamera.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedMorphSphere/glTF-Binary/AnimatedMorphSphere.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ToyCar/glTF-Binary/ToyCar.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SuzanneMorphSparse/glTF-Binary/SuzanneMorphSparse.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureTransformMultiTest/glTF-Binary/TextureTransformMultiTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RecursiveSkeletons/glTF-Binary/RecursiveSkeletons.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BarramundiFish/glTF-Binary/BarramundiFish.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Binary/CesiumMilkTruck.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MetalRoughSpheresNoTextures/glTF-Binary/MetalRoughSpheresNoTextures.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/XmpMetadataRoundedCube/glTF-Binary/xmp.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedFigure/glTF-Binary/RiggedFigure.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TransmissionTest/glTF-Binary/TransmissionTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureCoordinateTest/glTF-Binary/TextureCoordinateTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF-Binary/AlphaBlendModeTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/EmissiveStrengthTest/glTF-Binary/EmissiveStrengthTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Binary/ReciprocatingSaw.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Fox/glTF-Binary/Fox.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AttenuationTest/glTF-Binary/AttenuationTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/UnlitTest/glTF-Binary/UnlitTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearcoatWicker/glTF-Binary/ClearcoatWicker.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MetalRoughSpheres/glTF-Binary/MetalRoughSpheres.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF-Binary/BoxTexturedNonPowerOfTwo.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedSimple/glTF-Binary/RiggedSimple.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Lantern/glTF-Binary/Lantern.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/LightsPunctualLamp/glTF-Binary/LightsPunctualLamp.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Corset/glTF-Binary/Corset.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TransmissionRoughnessTest/glTF-Binary/TransmissionRoughnessTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NormalTangentTest/glTF-Binary/NormalTangentTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DirectionalLight/glTF-Binary/DirectionalLight.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SheenChair/glTF-Binary/SheenChair.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CarbonFibre/glTF-Binary/CarbonFibre.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF-Binary/NormalTangentMirrorTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DamagedHelmet/glTF-Binary/DamagedHelmet.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Avocado/glTF-Binary/Avocado.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MultiUVTest/glTF-Binary/MultiUVTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxVertexColors/glTF-Binary/BoxVertexColors.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Box/glTF-Binary/Box.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NegativeScaleTest/glTF-Binary/NegativeScaleTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoomBox/glTF-Binary/BoomBox.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VC/glTF-Binary/VC.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BrainStem/glTF-Binary/BrainStem.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF-Binary/MorphPrimitivesTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedMorphCube/glTF-Binary/AnimatedMorphCube.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMan/glTF-Binary/CesiumMan.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescenceSuzanne/glTF-Binary/IridescenceSuzanne.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Duck/glTF-Binary/Duck.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/InterpolationTest/glTF-Binary/InterpolationTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/2CylinderEngine/glTF-Binary/2CylinderEngine.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DragonAttenuation/glTF-Binary/DragonAttenuation.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxTextured/glTF-Binary/BoxTextured.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SpecGlossVsMetalRough/glTF-Binary/SpecGlossVsMetalRough.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleInstancing/glTF-Binary/SimpleInstancing.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MosquitoInAmber/glTF-Binary/MosquitoInAmber.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearCoatTest/glTF-Binary/ClearCoatTest.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxInterleaved/glTF-Binary/BoxInterleaved.glb
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/GearboxAssy/glTF/GearboxAssy.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/GearboxAssy/glTF-Draco/GearboxAssy.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/GearboxAssy/glTF-Embedded/GearboxAssy.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/GlamVelvetSofa/glTF/GlamVelvetSofa.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescentDishWithOlives/glTF/IridescentDishWithOlives.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Buggy/glTF/Buggy.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Buggy/glTF-Draco/Buggy.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Buggy/glTF-Embedded/Buggy.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SheenDamask/glTF/SheenDamask.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureLinearInterpolationTest/glTF/TextureLinearInterpolationTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MaterialsVariantsShoe/glTF/MaterialsVariantsShoe.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescenceLamp/glTF/IridescenceLamp.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearCoatCarPaint/glTF/ClearCoatCarPaint.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SpecularTest/glTF/SpecularTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleMeshes/glTF/SimpleMeshes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleMeshes/glTF-Embedded/SimpleMeshes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MorphStressTest/glTF/MorphStressTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureSettingsTest/glTF/TextureSettingsTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureSettingsTest/glTF-Embedded/TextureSettingsTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VertexColorTest/glTF/VertexColorTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VertexColorTest/glTF-Embedded/VertexColorTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/OrientationTest/glTF/OrientationTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/OrientationTest/glTF-Embedded/OrientationTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/WaterBottle/glTF/WaterBottle.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/WaterBottle/glTF-Draco/WaterBottle.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MeshPrimitiveModes/glTF/MeshPrimitiveModes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MeshPrimitiveModes/glTF-Embedded/MeshPrimitiveModes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureEncodingTest/glTF/TextureEncodingTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxAnimated/glTF/BoxAnimated.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxAnimated/glTF-Embedded/BoxAnimated.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MultipleScenes/glTF/MultipleScenes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MultipleScenes/glTF-Embedded/MultipleScenes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AntiqueCamera/glTF/AntiqueCamera.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedMorphSphere/glTF/AnimatedMorphSphere.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ToyCar/glTF/ToyCar.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SuzanneMorphSparse/glTF/SuzanneMorphSparse.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureTransformMultiTest/glTF/TextureTransformMultiTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RecursiveSkeletons/glTF/RecursiveSkeletons.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BarramundiFish/glTF/BarramundiFish.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BarramundiFish/glTF-Draco/BarramundiFish.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleSparseAccessor/glTF/SimpleSparseAccessor.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleSparseAccessor/glTF-Embedded/SimpleSparseAccessor.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMilkTruck/glTF/CesiumMilkTruck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Draco/CesiumMilkTruck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Sponza/glTF/Sponza.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/FlightHelmet/glTF/FlightHelmet.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/FlightHelmet/glTF-KTX-BasisU/FlightHelmet.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MetalRoughSpheresNoTextures/glTF/MetalRoughSpheresNoTextures.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/XmpMetadataRoundedCube/glTF/xmp.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedFigure/glTF/RiggedFigure.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedFigure/glTF-Draco/RiggedFigure.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedFigure/glTF-Embedded/RiggedFigure.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TransmissionTest/glTF/TransmissionTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureCoordinateTest/glTF/TextureCoordinateTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureCoordinateTest/glTF-Embedded/TextureCoordinateTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF/AlphaBlendModeTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF-Embedded/AlphaBlendModeTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/EmissiveStrengthTest/glTF/EmissiveStrengthTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearcoatRing/glTF/ClearcoatRing.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ReciprocatingSaw/glTF/ReciprocatingSaw.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Draco/ReciprocatingSaw.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Embedded/ReciprocatingSaw.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Cube/glTF/Cube.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SheenHighHeel/glTF/SheenHighHeel.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Fox/glTF/Fox.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AttenuationTest/glTF/AttenuationTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/UnlitTest/glTF/UnlitTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescenceMetallicSpheres/glTF/IridescenceMetallicSpheres.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleMorph/glTF/SimpleMorph.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleMorph/glTF-Embedded/SimpleMorph.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/EnvironmentTest/glTF/EnvironmentTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/EnvironmentTest/glTF-IBL/EnvironmentTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/PrimitiveModeNormalsTest/glTF/PrimitiveModeNormalsTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearcoatWicker/glTF/ClearcoatWicker.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MetalRoughSpheres/glTF/MetalRoughSpheres.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MetalRoughSpheres/glTF-Embedded/MetalRoughSpheres.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF/BoxTexturedNonPowerOfTwo.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF-Embedded/BoxTexturedNonPowerOfTwo.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleSkin/glTF/SimpleSkin.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleSkin/glTF-Embedded/SimpleSkin.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedSimple/glTF/RiggedSimple.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedSimple/glTF-Draco/RiggedSimple.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/RiggedSimple/glTF-Embedded/RiggedSimple.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Lantern/glTF/Lantern.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Lantern/glTF-Quantized/Lantern.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Lantern/glTF-Draco/Lantern.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TextureTransformTest/glTF/TextureTransformTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/LightsPunctualLamp/glTF/LightsPunctualLamp.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Corset/glTF/Corset.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Corset/glTF-Draco/Corset.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedTriangle/glTF/AnimatedTriangle.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedTriangle/glTF-Embedded/AnimatedTriangle.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TransmissionRoughnessTest/glTF/TransmissionRoughnessTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TriangleWithoutIndices/glTF/TriangleWithoutIndices.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TriangleWithoutIndices/glTF-Embedded/TriangleWithoutIndices.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NormalTangentTest/glTF/NormalTangentTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NormalTangentTest/glTF-Embedded/NormalTangentTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DirectionalLight/glTF/DirectionalLight.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SheenChair/glTF/SheenChair.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TwoSidedPlane/glTF/TwoSidedPlane.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CarbonFibre/glTF/CarbonFibre.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF/NormalTangentMirrorTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF-Embedded/NormalTangentMirrorTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DamagedHelmet/glTF-Embedded/DamagedHelmet.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Cameras/glTF/Cameras.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Cameras/glTF-Embedded/Cameras.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Avocado/glTF/Avocado.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Avocado/glTF-Quantized/Avocado.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Avocado/glTF-Draco/Avocado.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MultiUVTest/glTF/MultiUVTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MultiUVTest/glTF-Embedded/MultiUVTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Triangle/glTF/Triangle.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Triangle/glTF-Embedded/Triangle.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SheenCloth/glTF/SheenCloth.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxVertexColors/glTF/BoxVertexColors.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxVertexColors/glTF-Embedded/BoxVertexColors.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Box/glTF/Box.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Box/glTF-Draco/Box.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Box/glTF-Embedded/Box.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Box With Spaces/glTF/Box With Spaces.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Suzanne/glTF/Suzanne.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/NegativeScaleTest/glTF/NegativeScaleTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoomBox/glTF/BoomBox.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoomBox/glTF-Draco/BoomBox.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VC/glTF/VC.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VC/glTF-Draco/VC.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/VC/glTF-Embedded/VC.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BrainStem/glTF-Draco/BrainStem.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BrainStem/glTF-Meshopt/BrainStem.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BrainStem/glTF-Embedded/BrainStem.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/StainedGlassLamp/glTF/StainedGlassLamp.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/StainedGlassLamp/glTF-KTX-BasisU/StainedGlassLamp.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF/MorphPrimitivesTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF-Draco/MorphPrimitivesTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedMorphCube/glTF/AnimatedMorphCube.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedMorphCube/glTF-Quantized/AnimatedMorphCube.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMan/glTF/CesiumMan.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMan/glTF-Draco/CesiumMan.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/CesiumMan/glTF-Embedded/CesiumMan.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescenceSuzanne/glTF/IridescenceSuzanne.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Duck/glTF/Duck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Duck/glTF-Quantized/Duck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Duck/glTF-Draco/Duck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/Duck/glTF-Embedded/Duck.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/InterpolationTest/glTF/InterpolationTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/2CylinderEngine/glTF/2CylinderEngine.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/2CylinderEngine/glTF-Draco/2CylinderEngine.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/2CylinderEngine/glTF-Embedded/2CylinderEngine.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoomBoxWithAxes/glTF/BoomBoxWithAxes.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ABeautifulGame/glTF/ABeautifulGame.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DragonAttenuation/glTF/DragonAttenuation.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/DragonAttenuation/glTF-Meshopt/DragonAttenuation.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxTextured/glTF/BoxTextured.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxTextured/glTF-Embedded/BoxTextured.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SpecGlossVsMetalRough/glTF/SpecGlossVsMetalRough.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearcoatSphere/glTF/ClearcoatSphere.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/SimpleInstancing/glTF/SimpleInstancing.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/IridescenceDielectricSpheres/glTF/IridescenceDielectricSpheres.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/MosquitoInAmber/glTF/MosquitoInAmber.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/ClearCoatTest/glTF/ClearCoatTest.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/TransmissionSuzanne/glTF/TransmissionSuzanne.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxInterleaved/glTF/BoxInterleaved.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/BoxInterleaved/glTF-Embedded/BoxInterleaved.gltf
+### Result: 0
+
+### test_conversion glTF-Sample-Models/2.0/AnimatedCube/glTF/AnimatedCube.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/GearboxAssy/glTF/GearboxAssy.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/GearboxAssy/glTF-Draco/GearboxAssy.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/GearboxAssy/glTF-Embedded/GearboxAssy.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/GlamVelvetSofa/glTF/GlamVelvetSofa.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/IridescentDishWithOlives/glTF/IridescentDishWithOlives.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Buggy/glTF/Buggy.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Buggy/glTF-Draco/Buggy.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Buggy/glTF-Embedded/Buggy.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SheenDamask/glTF/SheenDamask.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureLinearInterpolationTest/glTF/TextureLinearInterpolationTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MaterialsVariantsShoe/glTF/MaterialsVariantsShoe.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/IridescenceLamp/glTF/IridescenceLamp.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ClearCoatCarPaint/glTF/ClearCoatCarPaint.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SpecularTest/glTF/SpecularTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleMeshes/glTF/SimpleMeshes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleMeshes/glTF-Embedded/SimpleMeshes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MorphStressTest/glTF/MorphStressTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureSettingsTest/glTF/TextureSettingsTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureSettingsTest/glTF-Embedded/TextureSettingsTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/VertexColorTest/glTF/VertexColorTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/VertexColorTest/glTF-Embedded/VertexColorTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/OrientationTest/glTF/OrientationTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/OrientationTest/glTF-Embedded/OrientationTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/WaterBottle/glTF/WaterBottle.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/WaterBottle/glTF-Draco/WaterBottle.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MeshPrimitiveModes/glTF/MeshPrimitiveModes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MeshPrimitiveModes/glTF-Embedded/MeshPrimitiveModes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureEncodingTest/glTF/TextureEncodingTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxAnimated/glTF/BoxAnimated.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxAnimated/glTF-Embedded/BoxAnimated.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MultipleScenes/glTF/MultipleScenes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MultipleScenes/glTF-Embedded/MultipleScenes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AntiqueCamera/glTF/AntiqueCamera.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AnimatedMorphSphere/glTF/AnimatedMorphSphere.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ToyCar/glTF/ToyCar.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SuzanneMorphSparse/glTF/SuzanneMorphSparse.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureTransformMultiTest/glTF/TextureTransformMultiTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RecursiveSkeletons/glTF/RecursiveSkeletons.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BarramundiFish/glTF/BarramundiFish.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BarramundiFish/glTF-Draco/BarramundiFish.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleSparseAccessor/glTF/SimpleSparseAccessor.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleSparseAccessor/glTF-Embedded/SimpleSparseAccessor.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CesiumMilkTruck/glTF/CesiumMilkTruck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Draco/CesiumMilkTruck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Embedded/CesiumMilkTruck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Sponza/glTF/Sponza.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/FlightHelmet/glTF/FlightHelmet.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/FlightHelmet/glTF-KTX-BasisU/FlightHelmet.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MetalRoughSpheresNoTextures/glTF/MetalRoughSpheresNoTextures.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/XmpMetadataRoundedCube/glTF/xmp.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RiggedFigure/glTF/RiggedFigure.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RiggedFigure/glTF-Draco/RiggedFigure.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RiggedFigure/glTF-Embedded/RiggedFigure.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TransmissionTest/glTF/TransmissionTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureCoordinateTest/glTF/TextureCoordinateTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureCoordinateTest/glTF-Embedded/TextureCoordinateTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF/AlphaBlendModeTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF-Embedded/AlphaBlendModeTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/EmissiveStrengthTest/glTF/EmissiveStrengthTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ClearcoatRing/glTF/ClearcoatRing.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ReciprocatingSaw/glTF/ReciprocatingSaw.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Draco/ReciprocatingSaw.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Embedded/ReciprocatingSaw.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Cube/glTF/Cube.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SheenHighHeel/glTF/SheenHighHeel.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Fox/glTF/Fox.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AttenuationTest/glTF/AttenuationTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/UnlitTest/glTF/UnlitTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/IridescenceMetallicSpheres/glTF/IridescenceMetallicSpheres.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleMorph/glTF/SimpleMorph.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleMorph/glTF-Embedded/SimpleMorph.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/EnvironmentTest/glTF/EnvironmentTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/EnvironmentTest/glTF-IBL/EnvironmentTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/PrimitiveModeNormalsTest/glTF/PrimitiveModeNormalsTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ClearcoatWicker/glTF/ClearcoatWicker.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MetalRoughSpheres/glTF/MetalRoughSpheres.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MetalRoughSpheres/glTF-Embedded/MetalRoughSpheres.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF/BoxTexturedNonPowerOfTwo.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF-Embedded/BoxTexturedNonPowerOfTwo.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleSkin/glTF/SimpleSkin.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleSkin/glTF-Embedded/SimpleSkin.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RiggedSimple/glTF/RiggedSimple.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RiggedSimple/glTF-Draco/RiggedSimple.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/RiggedSimple/glTF-Embedded/RiggedSimple.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Lantern/glTF/Lantern.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Lantern/glTF-Quantized/Lantern.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Lantern/glTF-Draco/Lantern.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TextureTransformTest/glTF/TextureTransformTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/LightsPunctualLamp/glTF/LightsPunctualLamp.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Corset/glTF/Corset.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Corset/glTF-Draco/Corset.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AnimatedTriangle/glTF/AnimatedTriangle.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AnimatedTriangle/glTF-Embedded/AnimatedTriangle.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TransmissionRoughnessTest/glTF/TransmissionRoughnessTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TriangleWithoutIndices/glTF/TriangleWithoutIndices.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TriangleWithoutIndices/glTF-Embedded/TriangleWithoutIndices.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/NormalTangentTest/glTF/NormalTangentTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/NormalTangentTest/glTF-Embedded/NormalTangentTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/DirectionalLight/glTF/DirectionalLight.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SheenChair/glTF/SheenChair.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TwoSidedPlane/glTF/TwoSidedPlane.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CarbonFibre/glTF/CarbonFibre.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF/NormalTangentMirrorTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF-Embedded/NormalTangentMirrorTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/DamagedHelmet/glTF-Embedded/DamagedHelmet.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Cameras/glTF/Cameras.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Cameras/glTF-Embedded/Cameras.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Avocado/glTF/Avocado.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Avocado/glTF-Quantized/Avocado.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Avocado/glTF-Draco/Avocado.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MultiUVTest/glTF/MultiUVTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MultiUVTest/glTF-Embedded/MultiUVTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Triangle/glTF/Triangle.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Triangle/glTF-Embedded/Triangle.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SheenCloth/glTF/SheenCloth.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxVertexColors/glTF/BoxVertexColors.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxVertexColors/glTF-Embedded/BoxVertexColors.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Box/glTF/Box.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Box/glTF-Draco/Box.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Box/glTF-Embedded/Box.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Box With Spaces/glTF/Box With Spaces.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Suzanne/glTF/Suzanne.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/NegativeScaleTest/glTF/NegativeScaleTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoomBox/glTF/BoomBox.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoomBox/glTF-Draco/BoomBox.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/VC/glTF/VC.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/VC/glTF-Draco/VC.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/VC/glTF-Embedded/VC.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BrainStem/glTF-Draco/BrainStem.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BrainStem/glTF-Meshopt/BrainStem.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BrainStem/glTF-Embedded/BrainStem.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/StainedGlassLamp/glTF/StainedGlassLamp.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/StainedGlassLamp/glTF-KTX-BasisU/StainedGlassLamp.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/StainedGlassLamp/glTF-JPG-PNG/StainedGlassLamp.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF/MorphPrimitivesTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF-Draco/MorphPrimitivesTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AnimatedMorphCube/glTF/AnimatedMorphCube.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AnimatedMorphCube/glTF-Quantized/AnimatedMorphCube.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CesiumMan/glTF/CesiumMan.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CesiumMan/glTF-Draco/CesiumMan.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/CesiumMan/glTF-Embedded/CesiumMan.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/IridescenceSuzanne/glTF/IridescenceSuzanne.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Duck/glTF/Duck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Duck/glTF-Quantized/Duck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Duck/glTF-Draco/Duck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/Duck/glTF-Embedded/Duck.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/InterpolationTest/glTF/InterpolationTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/2CylinderEngine/glTF/2CylinderEngine.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/2CylinderEngine/glTF-Draco/2CylinderEngine.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/2CylinderEngine/glTF-Embedded/2CylinderEngine.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoomBoxWithAxes/glTF/BoomBoxWithAxes.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ABeautifulGame/glTF/ABeautifulGame.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/DragonAttenuation/glTF/DragonAttenuation.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/DragonAttenuation/glTF-Meshopt/DragonAttenuation.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxTextured/glTF/BoxTextured.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxTextured/glTF-Embedded/BoxTextured.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SpecGlossVsMetalRough/glTF/SpecGlossVsMetalRough.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ClearcoatSphere/glTF/ClearcoatSphere.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/SimpleInstancing/glTF/SimpleInstancing.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/IridescenceDielectricSpheres/glTF/IridescenceDielectricSpheres.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/MosquitoInAmber/glTF/MosquitoInAmber.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/ClearCoatTest/glTF/ClearCoatTest.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/TransmissionSuzanne/glTF/TransmissionSuzanne.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxInterleaved/glTF/BoxInterleaved.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/BoxInterleaved/glTF-Embedded/BoxInterleaved.gltf
+### Result: 0
+
+### test_write glTF-Sample-Models/2.0/AnimatedCube/glTF/AnimatedCube.gltf
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/GearboxAssy/glTF-Binary/GearboxAssy.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/GlamVelvetSofa/glTF-Binary/GlamVelvetSofa.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/IridescentDishWithOlives/glTF-Binary/IridescentDishWithOlives.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Buggy/glTF-Binary/Buggy.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TextureLinearInterpolationTest/glTF-Binary/TextureLinearInterpolationTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MaterialsVariantsShoe/glTF-Binary/MaterialsVariantsShoe.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/IridescenceLamp/glTF-Binary/IridescenceLamp.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/ClearCoatCarPaint/glTF-Binary/ClearCoatCarPaint.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/SpecularTest/glTF-Binary/SpecularTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MorphStressTest/glTF-Binary/MorphStressTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TextureSettingsTest/glTF-Binary/TextureSettingsTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/VertexColorTest/glTF-Binary/VertexColorTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/OrientationTest/glTF-Binary/OrientationTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/WaterBottle/glTF-Binary/WaterBottle.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TextureEncodingTest/glTF-Binary/TextureEncodingTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BoxAnimated/glTF-Binary/BoxAnimated.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/AntiqueCamera/glTF-Binary/AntiqueCamera.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/AnimatedMorphSphere/glTF-Binary/AnimatedMorphSphere.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/ToyCar/glTF-Binary/ToyCar.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/SuzanneMorphSparse/glTF-Binary/SuzanneMorphSparse.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TextureTransformMultiTest/glTF-Binary/TextureTransformMultiTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/RecursiveSkeletons/glTF-Binary/RecursiveSkeletons.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BarramundiFish/glTF-Binary/BarramundiFish.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/CesiumMilkTruck/glTF-Binary/CesiumMilkTruck.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MetalRoughSpheresNoTextures/glTF-Binary/MetalRoughSpheresNoTextures.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/XmpMetadataRoundedCube/glTF-Binary/xmp.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/RiggedFigure/glTF-Binary/RiggedFigure.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TransmissionTest/glTF-Binary/TransmissionTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TextureCoordinateTest/glTF-Binary/TextureCoordinateTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/AlphaBlendModeTest/glTF-Binary/AlphaBlendModeTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/EmissiveStrengthTest/glTF-Binary/EmissiveStrengthTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/ReciprocatingSaw/glTF-Binary/ReciprocatingSaw.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Fox/glTF-Binary/Fox.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/AttenuationTest/glTF-Binary/AttenuationTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/UnlitTest/glTF-Binary/UnlitTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/ClearcoatWicker/glTF-Binary/ClearcoatWicker.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MetalRoughSpheres/glTF-Binary/MetalRoughSpheres.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BoxTexturedNonPowerOfTwo/glTF-Binary/BoxTexturedNonPowerOfTwo.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/RiggedSimple/glTF-Binary/RiggedSimple.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Lantern/glTF-Binary/Lantern.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/LightsPunctualLamp/glTF-Binary/LightsPunctualLamp.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Corset/glTF-Binary/Corset.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/TransmissionRoughnessTest/glTF-Binary/TransmissionRoughnessTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/NormalTangentTest/glTF-Binary/NormalTangentTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/DirectionalLight/glTF-Binary/DirectionalLight.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/SheenChair/glTF-Binary/SheenChair.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/CarbonFibre/glTF-Binary/CarbonFibre.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/NormalTangentMirrorTest/glTF-Binary/NormalTangentMirrorTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/DamagedHelmet/glTF-Binary/DamagedHelmet.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Avocado/glTF-Binary/Avocado.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MultiUVTest/glTF-Binary/MultiUVTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BoxVertexColors/glTF-Binary/BoxVertexColors.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Box/glTF-Binary/Box.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/NegativeScaleTest/glTF-Binary/NegativeScaleTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BoomBox/glTF-Binary/BoomBox.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/VC/glTF-Binary/VC.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BrainStem/glTF-Binary/BrainStem.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MorphPrimitivesTest/glTF-Binary/MorphPrimitivesTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/AnimatedMorphCube/glTF-Binary/AnimatedMorphCube.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/CesiumMan/glTF-Binary/CesiumMan.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/IridescenceSuzanne/glTF-Binary/IridescenceSuzanne.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/Duck/glTF-Binary/Duck.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/InterpolationTest/glTF-Binary/InterpolationTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/2CylinderEngine/glTF-Binary/2CylinderEngine.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/DragonAttenuation/glTF-Binary/DragonAttenuation.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BoxTextured/glTF-Binary/BoxTextured.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/SpecGlossVsMetalRough/glTF-Binary/SpecGlossVsMetalRough.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/SimpleInstancing/glTF-Binary/SimpleInstancing.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/MosquitoInAmber/glTF-Binary/MosquitoInAmber.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/ClearCoatTest/glTF-Binary/ClearCoatTest.glb
+### Result: 0
+
+### test_write_glb glTF-Sample-Models/2.0/BoxInterleaved/glTF-Binary/BoxInterleaved.glb
+### Result: 0
+
+Tested files: 726
+Errors: 0

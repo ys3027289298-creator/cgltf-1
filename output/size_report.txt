@@ -1,0 +1,29 @@
+### 1) GLB -> GLB (original binary vs writer output; BIN chunk is byte-identical)
+model                  orig.glb    new.glb     delta  percent
+Box/Box.glb        in=    1664 out=    2136 delta=   +472 (+28.37%)
+BoxInterleaved/BoxInterleaved.glb in=    1632 out=    2084 delta=   +452 (+27.70%)
+BoxTextured/BoxTextured.glb in=    6540 out=    7280 delta=   +740 (+11.31%)
+SimpleInstancing/SimpleInstancing.glb in=    7356 out=    8160 delta=   +804 (+10.93%)
+ClearCoatTest/ClearCoatTest.glb in=  238416 out=  247176 delta=  +8760 (+3.67%)
+Buggy/Buggy.glb    in= 7885636 out= 7922192 delta= +36556 (+0.46%)
+DragonAttenuation/DragonAttenuation.glb in= 6566656 out= 6568664 delta=  +2008 (+0.03%)
+BoomBox/BoomBox.glb in=10945640 out=10946840 delta=  +1200 (+0.01%)
+Avocado/Avocado.glb in= 8328156 out= 8329224 delta=  +1068 (+0.01%)
+BarramundiFish/BarramundiFish.glb in=12521196 out=12522280 delta=  +1084 (+0.01%)
+AntiqueCamera/AntiqueCamera.glb in=20199648 out=20201352 delta=  +1704 (+0.01%)
+MosquitoInAmber/MosquitoInAmber.glb in=24229904 out=24232348 delta=  +2444 (+0.01%)
+
+### 2) .gltf + external .bin -> single self-contained GLB (packaging shrinks files)
+Box                  src(gltf+bin)=    3546  glb=    2136  delta=-1410 (-39.76%)
+BoxInterleaved       src(gltf+bin)=    3525  glb=    2084  delta=-1441 (-40.88%)
+BoxTextured          src(gltf+bin)=    4535  glb=    2840  delta=-1695 (-37.38%)
+handmade             src(gltf+bin)=    1162  glb=     984  delta=-178 (-15.32%)
+
+### 3) JSON vs BIN share inside rewritten GLBs (BIN never grows)
+model                  total    json       bin   json%
+Box                     2136    1460       648  68.35%
+BoxTextured             7280    2076      5176  28.52%
+Buggy                7922192  176176   7745988   2.22%
+BoomBox             10946840    2944  10943868   0.03%
+Avocado              8329224    2596   8326600   0.03%
+MosquitoInAmber     24232348    9000  24223320   0.04%

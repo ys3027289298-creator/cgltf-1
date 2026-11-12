@@ -1,0 +1,134 @@
+
+========== 1/7 defect: GLB writer lost external buffers and kept uri ==========
+changed files:
+cgltf_write.h
+test/test_write_glb.cpp
+old behavior: buffers[0].data was not embedded and JSON kept external uri -> broken GLB
+
+========== 2/7 build tiny assets (42 B BIN, not 4-aligned) ==========
+triangle.bin 42 bytes
+triangle.glb 140 bytes
+triangle.gltf 1120 bytes
+bad/bad_jsonmagic.glb 140 bytes
+bad/bad_magic.glb 140 bytes
+bad/bad_total.glb 140 bytes
+bad/truncated.glb 70 bytes
+
+========== 3/7 compile verifier (zero warnings, -Werror) ==========
+compile OK (zero warnings)
+
+========== 4/7 roundtrip: structure, BIN bytes and container layout ==========
+== A. parse external .gltf + load buffers ==
+  ok:   parse source gltf
+  ok:   load external .bin
+== B. write single-file GLB ==
+  ok:   cgltf_write_file GLB returns success
+== C. read GLB back and compare structure ==
+  ok:   re-parse written GLB
+  ok:   detected as GLB
+  ok:   meshes_count equal
+  ok:   materials_count equal
+  ok:   nodes_count equal
+  ok:   accessors_count equal
+  ok:   buffer_views_count equal
+  ok:   buffers_count equal
+  ok:   scenes_count equal
+  ok:   images_count equal
+  ok:   textures_count equal
+  ok:   GLB BIN chunk holds full logical payload (plus <=3 pad bytes)
+  ok:   bin payload byte-identical (logical length)
+  ok:   buffers[0].byteLength equal
+  ok:   GLB buffers[0] has no uri
+  ok:   primitive count equal
+  ok:   mesh name preserved
+  ok:   node name preserved
+  ok:   accessor[0].count equal
+  ok:   accessor[0].component_type equal
+  ok:   index accessor component_type equal
+  ok:   bufferView[0].byteLength equal
+  ok:   bufferView[1].byteOffset equal
+== D. container layout: alignment + self-consistency ==
+  ok:   file >= 12-byte header
+  ok:   magic glTF
+  ok:   version == 2
+  ok:   header total length == actual file size
+  ok:   JSON chunk magic
+  ok:   JSON chunk length 4-byte aligned
+  ok:   JSON chunk length matches payload + padding
+  ok:   JSON padding does not shrink payload
+  ok:   BIN chunk magic
+  ok:   BIN chunk length 4-byte aligned
+  ok:   BIN chunk length matches payload + padding
+  ok:   BIN chunk is last and fills file
+== E. second write from GLB data is stable ==
+  ok:   rewrite parsed GLB
+  ok:   GLB->GLB output size stable
+  ok:   rewritten files fully read
+  ok:   GLB->GLB bytes identical
+== F. invalid inputs rejected with error codes ==
+  ok:   NULL path -> invalid_options
+  ok:   no file created for NULL path
+  ok:   NULL data -> invalid_options
+  ok:   no file created for NULL data
+  ok:   bogus options.type -> invalid_options
+  ok:   no file created for bogus type
+  ok:   unloaded external buffer -> error, no broken GLB
+  ok:   failed write leaves no partial file
+  bad_magic.glb -> 2
+  ok:   malformed GLB rejected
+  bad_jsonmagic.glb -> 2
+  ok:   malformed GLB rejected
+  truncated.glb -> 1
+  ok:   malformed GLB rejected
+  bad_total.glb -> 1
+  ok:   malformed GLB rejected
+
+PASSED: 0 failure(s)
+
+========== 5/7 invalid input returns error codes, no broken file ==========
+NULL args / unloaded buffer covered in stage 4 section F; malformed GLBs via cgltf_test:
+Result: 3
+Result: 2
+Result: 1
+Result: 1
+Result: 0
+Type: 2
+Meshes: 0
+
+========== 6/7 repo entry regression: 726 sample models, ASan ==========
+full run saved in output/regression.log
+Tested files: 726
+Errors: 0
+
+========== 7/7 size comparison: BIN chunk never grows ==========
+### 1) GLB -> GLB (original binary vs writer output; BIN chunk is byte-identical)
+model                  orig.glb    new.glb     delta  percent
+Box/Box.glb        in=    1664 out=    2136 delta=   +472 (+28.37%)
+BoxInterleaved/BoxInterleaved.glb in=    1632 out=    2084 delta=   +452 (+27.70%)
+BoxTextured/BoxTextured.glb in=    6540 out=    7280 delta=   +740 (+11.31%)
+SimpleInstancing/SimpleInstancing.glb in=    7356 out=    8160 delta=   +804 (+10.93%)
+ClearCoatTest/ClearCoatTest.glb in=  238416 out=  247176 delta=  +8760 (+3.67%)
+Buggy/Buggy.glb    in= 7885636 out= 7922192 delta= +36556 (+0.46%)
+DragonAttenuation/DragonAttenuation.glb in= 6566656 out= 6568664 delta=  +2008 (+0.03%)
+BoomBox/BoomBox.glb in=10945640 out=10946840 delta=  +1200 (+0.01%)
+Avocado/Avocado.glb in= 8328156 out= 8329224 delta=  +1068 (+0.01%)
+BarramundiFish/BarramundiFish.glb in=12521196 out=12522280 delta=  +1084 (+0.01%)
+AntiqueCamera/AntiqueCamera.glb in=20199648 out=20201352 delta=  +1704 (+0.01%)
+MosquitoInAmber/MosquitoInAmber.glb in=24229904 out=24232348 delta=  +2444 (+0.01%)
+
+### 2) .gltf + external .bin -> single self-contained GLB (packaging shrinks files)
+Box                  src(gltf+bin)=    3546  glb=    2136  delta=-1410 (-39.76%)
+BoxInterleaved       src(gltf+bin)=    3525  glb=    2084  delta=-1441 (-40.88%)
+BoxTextured          src(gltf+bin)=    4535  glb=    2840  delta=-1695 (-37.38%)
+handmade             src(gltf+bin)=    1162  glb=     984  delta=-178 (-15.32%)
+
+### 3) JSON vs BIN share inside rewritten GLBs (BIN never grows)
+model                  total    json       bin   json%
+Box                     2136    1460       648  68.35%
+BoxTextured             7280    2076      5176  28.52%
+Buggy                7922192  176176   7745988   2.22%
+BoomBox             10946840    2944  10943868   0.03%
+Avocado              8329224    2596   8326600   0.03%
+MosquitoInAmber     24232348    9000  24223320   0.04%
+
+ALL STAGES DONE

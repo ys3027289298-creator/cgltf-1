@@ -1,0 +1,192 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "type": "SCALAR",
+      "count": 3,
+      "min": [0],
+      "max": [2]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "type": "VEC4",
+      "count": 3,
+      "min": [0, -8.74227766e-08, 0, -1],
+      "max": [0, 1, 0, 1]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5123,
+      "type": "SCALAR",
+      "count": 36,
+      "min": [0],
+      "max": [35]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 36,
+      "min": [-1, -1, -1],
+      "max": [1, 1, 1.00000095]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "type": "VEC3",
+      "count": 36,
+      "min": [-1, -1, -1],
+      "max": [1, 1, 1]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "type": "VEC4",
+      "count": 36,
+      "min": [0, -0, -1, -1],
+      "max": [1, -0, -0, 1]
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "type": "VEC2",
+      "count": 36,
+      "min": [-1, -1],
+      "max": [1, 1]
+    }
+  ],
+  "asset": {
+    "generator": "VKTS glTF 2.0 exporter",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 12
+    },
+    {
+      "buffer": 0,
+      "byteLength": 48,
+      "byteOffset": 12
+    },
+    {
+      "buffer": 0,
+      "byteLength": 72,
+      "byteOffset": 60
+    },
+    {
+      "buffer": 0,
+      "byteLength": 432,
+      "byteOffset": 132
+    },
+    {
+      "buffer": 0,
+      "byteLength": 432,
+      "byteOffset": 564
+    },
+    {
+      "buffer": 0,
+      "byteLength": 576,
+      "byteOffset": 996
+    },
+    {
+      "buffer": 0,
+      "byteLength": 288,
+      "byteOffset": 1572
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "AnimatedCube.bin",
+      "byteLength": 1860
+    }
+  ],
+  "images": [
+    {
+      "uri": "AnimatedCube_BaseColor.png"
+    },
+    {
+      "uri": "AnimatedCube_MetallicRoughness.png"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "AnimatedCube",
+      "primitives": [
+        {
+          "indices": 2,
+          "material": 0,
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3,
+            "TANGENT": 5,
+            "TEXCOORD_0": 6
+          }
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "AnimatedCube",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "AnimatedCube",
+      "rotation": [0, -1, 0, 0]
+    }
+  ],
+  "samplers": [
+    {
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [ 0 ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0,
+      "sampler": 0
+    },
+    {
+      "source": 1,
+      "sampler": 0
+    }
+  ],
+  "animations": [
+    {
+      "name": "animation_AnimatedCube",
+      "samplers": [
+        {
+          "interpolation": "LINEAR",
+          "input": 0,
+          "output": 1
+        }
+      ],
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        }
+      ]
+    }
+  ]
+}
