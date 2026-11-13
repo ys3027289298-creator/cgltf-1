@@ -1,0 +1,55 @@
+{
+ "asset": {
+  "version": "2.0"
+ },
+ "buffers": [
+  {
+   "uri": "sparse_bad_index_offset.bin",
+   "byteLength": 32
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteOffset": 0,
+   "byteLength": 16
+  },
+  {
+   "buffer": 0,
+   "byteOffset": 16,
+   "byteLength": 8
+  },
+  {
+   "buffer": 0,
+   "byteOffset": 24,
+   "byteLength": 8
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 4,
+   "type": "SCALAR",
+   "min": [
+    1.0
+   ],
+   "max": [
+    88.0
+   ],
+   "sparse": {
+    "count": 2,
+    "indices": {
+     "bufferView": 1,
+     "byteOffset": 4,
+     "componentType": 5123
+    },
+    "values": {
+     "bufferView": 2,
+     "byteOffset": 0
+    }
+   }
+  }
+ ],
+ "meshes": []
+}

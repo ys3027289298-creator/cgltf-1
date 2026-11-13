@@ -1,0 +1,27 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "type": "SCALAR",
+      "count": 4,
+      "min": [1],
+      "max": [4]
+    }
+  ],
+  "asset": {
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 16
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "dense.bin",
+      "byteLength": 16
+    }
+  ]
+}

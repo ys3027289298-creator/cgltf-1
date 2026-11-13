@@ -1,0 +1,61 @@
+{
+ "asset": {
+  "version": "2.0"
+ },
+ "buffers": [
+  {
+   "uri": "sparse_strided.bin",
+   "byteLength": 72
+  }
+ ],
+ "bufferViews": [
+  {
+   "buffer": 0,
+   "byteOffset": 0,
+   "byteLength": 44,
+   "byteStride": 16,
+   "target": 34962
+  },
+  {
+   "buffer": 0,
+   "byteOffset": 44,
+   "byteLength": 4
+  },
+  {
+   "buffer": 0,
+   "byteOffset": 48,
+   "byteLength": 24
+  }
+ ],
+ "accessors": [
+  {
+   "bufferView": 0,
+   "componentType": 5126,
+   "count": 3,
+   "type": "VEC3",
+   "min": [
+    1.0,
+    2.0,
+    3.0
+   ],
+   "max": [
+    9.0,
+    8.0,
+    7.0
+   ],
+   "sparse": {
+    "count": 2,
+    "indices": {
+     "bufferView": 1,
+     "byteOffset": 0,
+     "componentType": 5123
+    },
+    "values": {
+     "bufferView": 2,
+     "byteOffset": 0
+    }
+   }
+  }
+ ],
+ "meshes": []
+}

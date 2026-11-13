@@ -2370,6 +2370,9 @@ static const uint8_t* cgltf_find_sparse_index(const cgltf_accessor* accessor, cg
 	value_data += sparse->values_byte_offset;
 
 	cgltf_size index_stride = cgltf_component_size(sparse->indices_component_type);
+	// Per the glTF 2.0 spec, sparse values are stored in a tightly packed buffer
+	// view without a byteStride, so the element size governs the walk.
+	cgltf_size value_stride = cgltf_calc_size(accessor->type, accessor->component_type);
 
 	cgltf_size offset = 0;
 	cgltf_size length = sparse->count;
@@ -2387,7 +2390,7 @@ static const uint8_t* cgltf_find_sparse_index(const cgltf_accessor* accessor, cg
 		return NULL;
 
 	cgltf_size index = cgltf_component_read_index(index_data + offset * index_stride, sparse->indices_component_type);
-	return index == needle ? value_data + offset * accessor->stride : NULL;
+	return index == needle ? value_data + offset * value_stride : NULL;
 }
 
 cgltf_bool cgltf_accessor_read_float(const cgltf_accessor* accessor, cgltf_size index, cgltf_float* out, cgltf_size element_size)
@@ -2473,7 +2476,10 @@ cgltf_size cgltf_accessor_unpack_floats(const cgltf_accessor* accessor, cgltf_fl
 		reader_head += sparse->values_byte_offset;
 
 		cgltf_size index_stride = cgltf_component_size(sparse->indices_component_type);
-		for (cgltf_size reader_index = 0; reader_index < sparse->count; reader_index++, index_data += index_stride, reader_head += accessor->stride)
+		// The sparse values buffer view is tightly packed (see glTF 2.0, sparse
+		// accessors), so its stride is the element size rather than accessor->stride.
+		cgltf_size value_stride = cgltf_calc_size(accessor->type, accessor->component_type);
+		for (cgltf_size reader_index = 0; reader_index < sparse->count; reader_index++, index_data += index_stride, reader_head += value_stride)
 		{
 			size_t writer_index = cgltf_component_read_index(index_data, sparse->indices_component_type);
 			float* writer_head = out + writer_index * floats_per_element;
