@@ -2830,6 +2830,108 @@ static int cgltf_skip_json(jsmntok_t const* tokens, int i)
 	return i;
 }
 
+/*
+ * Skip a JSON value while never reading past limit (the token index one past
+ * the enclosing container). Malformed or truncated input can make the plain
+ * cgltf_skip_json walk into the JSMN_UNDEFINED sentinel or beyond the token
+ * array; this variant clamps every step to the known boundary and reports
+ * failure instead of dereferencing invalid memory.
+ */
+static int cgltf_skip_json_bounded(jsmntok_t const* tokens, int i, int limit)
+{
+	int end = i + 1;
+
+	while (i < end)
+	{
+		if (i >= limit || tokens[i].type == JSMN_UNDEFINED)
+		{
+			return -1;
+		}
+
+		switch (tokens[i].type)
+		{
+		case JSMN_OBJECT:
+			end += tokens[i].size * 2;
+			break;
+
+		case JSMN_ARRAY:
+			end += tokens[i].size;
+			break;
+
+		case JSMN_PRIMITIVE:
+		case JSMN_STRING:
+			break;
+
+		default:
+			return -1;
+		}
+
+		if (end > limit)
+		{
+			return -1;
+		}
+
+		++i;
+	}
+
+	return i;
+}
+
+/*
+ * Returns non-zero when the JSON object at object_index is structurally
+ * complete, i.e. every member has both a key and a value. jsmn still emits an
+ * object token for malformed input such as {"host"} where a key has no value;
+ * the valueless key appears as a STRING token whose size is 0. This walks the
+ * object's whole token range (including nested containers) and rejects any
+ * such token, so a corrupt extension payload can be detected before it is
+ * retained. The range itself comes from cgltf_skip_json, which already knows
+ * how to size nested objects and arrays.
+ */
+static int cgltf_json_object_is_well_formed(jsmntok_t const* tokens, int object_index, int limit)
+{
+	if (tokens[object_index].type != JSMN_OBJECT)
+	{
+		return 0;
+	}
+
+	int end = cgltf_skip_json_bounded(tokens, object_index, limit);
+	if (end < 0)
+	{
+		return 0;
+	}
+
+	for (int i = object_index + 1; i < end; ++i)
+	{
+		if (tokens[i].type == JSMN_UNDEFINED)
+		{
+			return 0;
+		}
+	}
+
+	/*
+	 * Confirm each direct member is a key followed by a complete value. A
+	 * valueless key (for example in {"host"}) leaves the cursor short of the
+	 * object's end, which the final equality check detects.
+	 */
+	int member_pairs = tokens[object_index].size;
+	int cursor = object_index + 1;
+	for (int member = 0; member < member_pairs; ++member)
+	{
+		if (tokens[cursor].type != JSMN_STRING || cursor + 1 >= end)
+		{
+			return 0;
+		}
+		int after_value = cgltf_skip_json_bounded(tokens, cursor + 1, end);
+		if (after_value < 0 || after_value > end)
+		{
+			return 0;
+		}
+		cursor = after_value;
+	}
+
+	return cursor == end;
+}
+
 static void cgltf_fill_float_array(float* out_array, int size, float value)
 {
 	for (int j = 0; j < size; ++j)
@@ -3033,38 +3135,57 @@ static int cgltf_parse_json_extras(cgltf_options* options, jsmntok_t const* toke
 	return i;
 }
 
-static int cgltf_parse_json_unprocessed_extension(cgltf_options* options, jsmntok_t const* tokens, int i, const uint8_t* json_chunk, cgltf_extension* out_extension)
+static int cgltf_parse_json_unprocessed_extension(cgltf_options* options, jsmntok_t const* tokens, int i, int limit, const uint8_t* json_chunk, cgltf_extension* out_extension)
 {
-	CGLTF_CHECK_TOKTYPE(tokens[i], JSMN_STRING);
-	CGLTF_CHECK_TOKTYPE(tokens[i+1], JSMN_OBJECT);
-	if (out_extension->name)
+	/*
+	 * A single extension entry is a string key (extension name) followed by
+	 * an object value holding the extension data. The entry is validated
+	 * before any allocation so that a corrupt one can be skipped without
+	 * leaking memory or aborting the parse of the surrounding document.
+	 */
+	jsmntok_t const* key = tokens + i;
+	jsmntok_t const* value = tokens + i + 1;
+
+	if (i + 1 >= limit || key->type != JSMN_STRING || value->type != JSMN_OBJECT || out_extension->name)
 	{
-		return CGLTF_ERROR_JSON;
+		/* Malformed key/value pair: advance past whatever tokens are present. */
+		return cgltf_skip_json_bounded(tokens, i + 1, limit);
+	}
+
+	/*
+	 * jsmn still emits an object token for broken input such as {"host"}
+	 * where a key has no value. Verify that the object and every nested
+	 * object is made of complete key/value members before retaining it.
+	 */
+	if (!cgltf_json_object_is_well_formed(tokens, i + 1, limit))
+	{
+		return cgltf_skip_json_bounded(tokens, i + 1, limit);
 	}
 
 	cgltf_size name_length = tokens[i].end - tokens[i].start;
-	out_extension->name = (char*)options->memory.alloc_func(options->memory.user_data, name_length + 1);
-	if (!out_extension->name)
+	char* name = (char*)options->memory.alloc_func(options->memory.user_data, name_length + 1);
+	if (!name)
 	{
 		return CGLTF_ERROR_NOMEM;
 	}
-	strncpy(out_extension->name, (const char*)json_chunk + tokens[i].start, name_length);
-	out_extension->name[name_length] = 0;
-	i++;
+	strncpy(name, (const char*)json_chunk + tokens[i].start, name_length);
+	name[name_length] = 0;
 
-	size_t start = tokens[i].start;
-	size_t size = tokens[i].end - start;
-	out_extension->data = (char*)options->memory.alloc_func(options->memory.user_data, size + 1);
-	if (!out_extension->data)
+	size_t start = tokens[i + 1].start;
+	size_t size = tokens[i + 1].end - start;
+	char* data = (char*)options->memory.alloc_func(options->memory.user_data, size + 1);
+	if (!data)
 	{
+		options->memory.free_func(options->memory.user_data, name);
 		return CGLTF_ERROR_NOMEM;
 	}
-	strncpy(out_extension->data, (const char*)json_chunk + start, size);
-	out_extension->data[size] = '\0';
+	strncpy(data, (const char*)json_chunk + start, size);
+	data[size] = '\0';
 
-	i = cgltf_skip_json(tokens, i);
+	out_extension->name = name;
+	out_extension->data = data;
 
-	return i;
+	return cgltf_skip_json_bounded(tokens, i + 1, limit);
 }
 
 static int cgltf_parse_json_unprocessed_extensions(cgltf_options* options, jsmntok_t const* tokens, int i, const uint8_t* json_chunk, cgltf_size* out_extensions_count, cgltf_extension** out_extensions)
@@ -3086,20 +3207,50 @@ static int cgltf_parse_json_unprocessed_extensions(cgltf_options* options, jsmnt
 		return CGLTF_ERROR_NOMEM;
 	}
 
+	/* Token index one past the closing brace of this extensions object. */
+	int container_end = cgltf_skip_json(tokens, i);
+	if (container_end < 0)
+	{
+		return CGLTF_ERROR_JSON;
+	}
+
 	++i;
 
 	for (int j = 0; j < extensions_size; ++j)
 	{
-		CGLTF_CHECK_KEY(tokens[i]);
-
-		cgltf_size extension_index = (*out_extensions_count)++;
-		cgltf_extension* extension = &((*out_extensions)[extension_index]);
-		i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, extension);
-
-		if (i < 0)
+		if (i >= container_end || tokens[i].type != JSMN_STRING || tokens[i].size == 0)
 		{
-			return i;
+			/* Malformed extension entry: skip the key and any value if present. */
+			int skipped = cgltf_skip_json_bounded(tokens, i + 1, container_end);
+			if (skipped < 0)
+			{
+				/* Unrecoverable token stream inside the container: stop cleanly. */
+				return container_end;
+			}
+			i = skipped;
+			if (i < 0)
+			{
+				return i;
+			}
+			continue;
 		}
+
+		cgltf_extension* extension = &((*out_extensions)[*out_extensions_count]);
+		int next = cgltf_parse_json_unprocessed_extension(options, tokens, i, container_end, json_chunk, extension);
+		if (next < 0)
+		{
+			return next;
+		}
+		if (next > container_end)
+		{
+			return CGLTF_ERROR_JSON;
+		}
+		/* Only count entries that produced a valid extension; corrupt ones are dropped. */
+		if (extension->name)
+		{
+			++(*out_extensions_count);
+		}
+		i = next;
 	}
 	return i;
 }
@@ -3400,6 +3551,12 @@ static int cgltf_parse_json_primitive(cgltf_options* options, jsmntok_t const* t
 				return CGLTF_ERROR_NOMEM;
 			}
 
+			int prim_extensions_end = cgltf_skip_json(tokens, i);
+			if (prim_extensions_end < 0)
+			{
+				return CGLTF_ERROR_JSON;
+			}
+
 			++i;
 			for (int k = 0; k < extensions_size; ++k)
 			{
@@ -3416,7 +3573,11 @@ static int cgltf_parse_json_primitive(cgltf_options* options, jsmntok_t const* t
 				}
 				else
 				{
-					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, &(out_prim->extensions[out_prim->extensions_count++]));
+					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, prim_extensions_end, json_chunk, &(out_prim->extensions[out_prim->extensions_count]));
+					if (i > 0)
+					{
+						++out_prim->extensions_count;
+					}
 				}
 
 				if (i < 0)
@@ -4653,6 +4814,11 @@ static int cgltf_parse_json_texture(cgltf_options* options, jsmntok_t const* tok
 			}
 
 			int extensions_size = tokens[i].size;
+			int texture_extensions_end = cgltf_skip_json(tokens, i);
+			if (texture_extensions_end < 0)
+			{
+				return CGLTF_ERROR_JSON;
+			}
 			++i;
 			out_texture->extensions = (cgltf_extension*)cgltf_calloc(options, sizeof(cgltf_extension), extensions_size);
 			out_texture->extensions_count = 0;
@@ -4724,7 +4890,11 @@ static int cgltf_parse_json_texture(cgltf_options* options, jsmntok_t const* tok
 				}
 				else
 				{
-					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, &(out_texture->extensions[out_texture->extensions_count++]));
+					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, texture_extensions_end, json_chunk, &(out_texture->extensions[out_texture->extensions_count]));
+					if (i > 0)
+					{
+						++out_texture->extensions_count;
+					}
 				}
 
 				if (i < 0)
@@ -4844,6 +5014,11 @@ static int cgltf_parse_json_material(cgltf_options* options, jsmntok_t const* to
 			}
 
 			int extensions_size = tokens[i].size;
+			int material_extensions_end = cgltf_skip_json(tokens, i);
+			if (material_extensions_end < 0)
+			{
+				return CGLTF_ERROR_JSON;
+			}
 			++i;
 			out_material->extensions = (cgltf_extension*)cgltf_calloc(options, sizeof(cgltf_extension), extensions_size);
 			out_material->extensions_count= 0;
@@ -4924,7 +5099,11 @@ static int cgltf_parse_json_material(cgltf_options* options, jsmntok_t const* to
 				}
 				else
 				{
-					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, &(out_material->extensions[out_material->extensions_count++]));
+					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, material_extensions_end, json_chunk, &(out_material->extensions[out_material->extensions_count]));
+					if (i > 0)
+					{
+						++out_material->extensions_count;
+					}
 				}
 
 				if (i < 0)
@@ -5224,6 +5403,12 @@ static int cgltf_parse_json_buffer_view(cgltf_options* options, jsmntok_t const*
 				return CGLTF_ERROR_NOMEM;
 			}
 
+			int buffer_view_extensions_end = cgltf_skip_json(tokens, i);
+			if (buffer_view_extensions_end < 0)
+			{
+				return CGLTF_ERROR_JSON;
+			}
+
 			++i;
 			for (int k = 0; k < extensions_size; ++k)
 			{
@@ -5242,7 +5427,11 @@ static int cgltf_parse_json_buffer_view(cgltf_options* options, jsmntok_t const*
 				}
 				else
 				{
-					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, &(out_buffer_view->extensions[out_buffer_view->extensions_count++]));
+					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, buffer_view_extensions_end, json_chunk, &(out_buffer_view->extensions[out_buffer_view->extensions_count]));
+					if (i > 0)
+					{
+						++out_buffer_view->extensions_count;
+					}
 				}
 
 				if (i < 0)
@@ -5852,6 +6041,12 @@ static int cgltf_parse_json_node(cgltf_options* options, jsmntok_t const* tokens
 				return CGLTF_ERROR_NOMEM;
 			}
 
+			int node_extensions_end = cgltf_skip_json(tokens, i);
+			if (node_extensions_end < 0)
+			{
+				return CGLTF_ERROR_JSON;
+			}
+
 			++i;
 
 			for (int k = 0; k < extensions_size; ++k)
@@ -5896,7 +6091,11 @@ static int cgltf_parse_json_node(cgltf_options* options, jsmntok_t const* tokens
 				}
 				else
 				{
-					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, &(out_node->extensions[out_node->extensions_count++]));
+					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, node_extensions_end, json_chunk, &(out_node->extensions[out_node->extensions_count]));
+					if (i > 0)
+					{
+						++out_node->extensions_count;
+					}
 				}
 
 				if (i < 0)
@@ -6510,6 +6709,12 @@ static int cgltf_parse_json_root(cgltf_options* options, jsmntok_t const* tokens
 				return CGLTF_ERROR_NOMEM;
 			}
 
+			int root_extensions_end = cgltf_skip_json(tokens, i);
+			if (root_extensions_end < 0)
+			{
+				return CGLTF_ERROR_JSON;
+			}
+
 			++i;
 
 			for (int k = 0; k < extensions_size; ++k)
@@ -6574,7 +6779,11 @@ static int cgltf_parse_json_root(cgltf_options* options, jsmntok_t const* tokens
 				}
 				else
 				{
-					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, json_chunk, &(out_data->data_extensions[out_data->data_extensions_count++]));
+					i = cgltf_parse_json_unprocessed_extension(options, tokens, i, root_extensions_end, json_chunk, &(out_data->data_extensions[out_data->data_extensions_count]));
+					if (i > 0)
+					{
+						++out_data->data_extensions_count;
+					}
 				}
 
 				if (i < 0)

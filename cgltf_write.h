@@ -260,6 +260,303 @@ static void cgltf_write_extras(cgltf_write_context* context, const cgltf_extras*
 	}
 }
 
+/* cgltf_write_stritem is defined later with the other string helpers. */
+static void cgltf_write_stritem(cgltf_write_context* context, const char* item);
+
+/*
+ * Writes the extension entries that the loader did not recognize. Their raw
+ * JSON payload is preserved byte-for-byte in cgltf_extension::data, so this
+ * only re-emits the stored text without re-serializing it. Entries whose name
+ * or payload is missing (for example because the source data was corrupt) are
+ * skipped. The caller is responsible for opening/closing the surrounding
+ * "extensions" object and for any comma handling via cgltf_write_line().
+ */
+static void cgltf_write_unprocessed_extensions(cgltf_write_context* context, const cgltf_extension* extensions, cgltf_size extensions_count)
+{
+	for (cgltf_size i = 0; i < extensions_count; ++i)
+	{
+		const cgltf_extension* extension = extensions + i;
+		if (!extension->name || !extension->data)
+		{
+			continue;
+		}
+		cgltf_write_indent(context);
+		CGLTF_SPRINTF("\"%s\": %s", extension->name, extension->data);
+		context->needs_comma = 1;
+	}
+}
+
+/*
+ * Emits a standalone "extensions" object for elements that have no typed
+ * (known) extension output. Returns true when at least one valid unknown
+ * extension was written, so callers can combine the result with their own
+ * known-extension checks.
+ */
+static bool cgltf_write_extension_container(cgltf_write_context* context, const cgltf_extension* extensions, cgltf_size extensions_count)
+{
+	cgltf_size valid = 0;
+	for (cgltf_size i = 0; i < extensions_count; ++i)
+	{
+		if (extensions[i].name && extensions[i].data)
+		{
+			++valid;
+		}
+	}
+
+	if (valid == 0)
+	{
+		return false;
+	}
+
+	cgltf_write_line(context, "\"extensions\": {");
+	cgltf_write_unprocessed_extensions(context, extensions, extensions_count);
+	cgltf_write_line(context, "}");
+
+	return true;
+}
+
+static bool cgltf_has_unprocessed_extensions(const cgltf_extension* extensions, cgltf_size extensions_count)
+{
+	for (cgltf_size i = 0; i < extensions_count; ++i)
+	{
+		if (extensions[i].name && extensions[i].data)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/* True when the document contains at least one preserved unknown extension. */
+static bool cgltf_data_has_unprocessed_extensions(const cgltf_data* data)
+{
+	if (cgltf_has_unprocessed_extensions(data->data_extensions, data->data_extensions_count))
+		return true;
+	if (cgltf_has_unprocessed_extensions(data->asset.extensions, data->asset.extensions_count))
+		return true;
+
+#define CGLTF_CHECK_GROUP(array, count, field) \
+	do { for (cgltf_size i_ = 0; i_ < (count); ++i_) \
+		if (cgltf_has_unprocessed_extensions((array)[i_].field, (array)[i_].field##_count)) return true; } while (0)
+
+	CGLTF_CHECK_GROUP(data->accessors, data->accessors_count, extensions);
+	CGLTF_CHECK_GROUP(data->buffer_views, data->buffer_views_count, extensions);
+	CGLTF_CHECK_GROUP(data->buffers, data->buffers_count, extensions);
+	CGLTF_CHECK_GROUP(data->images, data->images_count, extensions);
+	CGLTF_CHECK_GROUP(data->textures, data->textures_count, extensions);
+	CGLTF_CHECK_GROUP(data->samplers, data->samplers_count, extensions);
+	CGLTF_CHECK_GROUP(data->materials, data->materials_count, extensions);
+	CGLTF_CHECK_GROUP(data->nodes, data->nodes_count, extensions);
+	CGLTF_CHECK_GROUP(data->scenes, data->scenes_count, extensions);
+	CGLTF_CHECK_GROUP(data->skins, data->skins_count, extensions);
+	CGLTF_CHECK_GROUP(data->cameras, data->cameras_count, extensions);
+	CGLTF_CHECK_GROUP(data->animations, data->animations_count, extensions);
+
+	for (cgltf_size i = 0; i < data->meshes_count; ++i)
+	{
+		if (cgltf_has_unprocessed_extensions(data->meshes[i].extensions, data->meshes[i].extensions_count))
+			return true;
+		for (cgltf_size j = 0; j < data->meshes[i].primitives_count; ++j)
+		{
+			if (cgltf_has_unprocessed_extensions(data->meshes[i].primitives[j].extensions,
+				data->meshes[i].primitives[j].extensions_count))
+				return true;
+		}
+	}
+
+	for (cgltf_size i = 0; i < data->animations_count; ++i)
+	{
+		for (cgltf_size j = 0; j < data->animations[i].samplers_count; ++j)
+		{
+			if (cgltf_has_unprocessed_extensions(data->animations[i].samplers[j].extensions,
+				data->animations[i].samplers[j].extensions_count))
+				return true;
+		}
+		for (cgltf_size j = 0; j < data->animations[i].channels_count; ++j)
+		{
+			if (cgltf_has_unprocessed_extensions(data->animations[i].channels[j].extensions,
+				data->animations[i].channels[j].extensions_count))
+				return true;
+		}
+	}
+
+#undef CGLTF_CHECK_GROUP
+
+	return false;
+}
+
+static bool cgltf_string_in_array(const char* const* items, cgltf_size count, const char* value)
+{
+	for (cgltf_size i = 0; i < count; ++i)
+	{
+		if (items[i] && strcmp(items[i], value) == 0)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/*
+ * Names produced by the typed (known) extension writers. They are already
+ * represented by extension flags, so they must not be duplicated when the
+ * names of preserved (unknown) extensions are appended.
+ */
+static bool cgltf_is_known_extension_name(const char* name)
+{
+	static const char* const known_names[] = {
+		"KHR_texture_transform",
+		"KHR_materials_unlit",
+		"KHR_materials_pbrSpecularGlossiness",
+		"KHR_lights_punctual",
+		"KHR_draco_mesh_compression",
+		"KHR_materials_clearcoat",
+		"KHR_materials_ior",
+		"KHR_materials_specular",
+		"KHR_materials_transmission",
+		"KHR_materials_sheen",
+		"KHR_materials_variants",
+		"KHR_materials_volume",
+		"KHR_texture_basisu",
+		"KHR_materials_emissive_strength",
+		"KHR_materials_iridescence",
+		"KHR_materials_diffuse_transmission",
+		"KHR_materials_anisotropy",
+		"EXT_mesh_gpu_instancing",
+		"KHR_materials_dispersion",
+		"EXT_texture_webp"
+	};
+
+	for (cgltf_size i = 0; i < sizeof(known_names) / sizeof(known_names[0]); ++i)
+	{
+		if (strcmp(name, known_names[i]) == 0)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/*
+ * Appends each preserved (unknown) extension name to the open
+ * extensionsUsed / extensionsRequired array. Typed extension names and
+ * repeats are skipped. emitted/emitted_count tracks names already written by
+ * earlier calls within the same document.
+ */
+/*
+ * Appends each preserved (unknown) extension name to the open
+ * extensionsUsed / extensionsRequired array. Typed extension names and
+ * repeats are skipped. emitted/emitted_count tracks names already written by
+ * earlier calls within the same document.
+ */
+static void cgltf_write_unprocessed_extension_names(cgltf_write_context* context, const char*** emitted, cgltf_size* emitted_count)
+{
+	const cgltf_data* data = context->data;
+
+	/* Parallel arrays describing every location that holds cgltf_extension. */
+	cgltf_size capacity = 16;
+	cgltf_size group_count = 0;
+	const cgltf_extension** groups = (const cgltf_extension**)malloc(capacity * sizeof(cgltf_extension*));
+	cgltf_size* group_counts = (cgltf_size*)malloc(capacity * sizeof(cgltf_size));
+	if (!groups || !group_counts)
+	{
+		free(groups);
+		free(group_counts);
+		return;
+	}
+
+#define CGLTF_ADD_EXTENSION_GROUP(ptr, count_expr) \
+	do { \
+		if (group_count == capacity) { \
+			capacity *= 2; \
+			groups = (const cgltf_extension**)realloc((void*)groups, capacity * sizeof(cgltf_extension*)); \
+			group_counts = (cgltf_size*)realloc((void*)group_counts, capacity * sizeof(cgltf_size)); \
+			if (!groups || !group_counts) { free(groups); free(group_counts); return; } \
+		} \
+		groups[group_count] = (ptr); \
+		group_counts[group_count] = (count_expr); \
+		++group_count; \
+	} while (0)
+
+	CGLTF_ADD_EXTENSION_GROUP(data->data_extensions, data->data_extensions_count);
+	CGLTF_ADD_EXTENSION_GROUP(data->asset.extensions, data->asset.extensions_count);
+	for (cgltf_size i = 0; i < data->accessors_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->accessors[i].extensions, data->accessors[i].extensions_count);
+	for (cgltf_size i = 0; i < data->buffer_views_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->buffer_views[i].extensions, data->buffer_views[i].extensions_count);
+	for (cgltf_size i = 0; i < data->buffers_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->buffers[i].extensions, data->buffers[i].extensions_count);
+	for (cgltf_size i = 0; i < data->images_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->images[i].extensions, data->images[i].extensions_count);
+	for (cgltf_size i = 0; i < data->textures_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->textures[i].extensions, data->textures[i].extensions_count);
+	for (cgltf_size i = 0; i < data->samplers_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->samplers[i].extensions, data->samplers[i].extensions_count);
+	for (cgltf_size i = 0; i < data->materials_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->materials[i].extensions, data->materials[i].extensions_count);
+	for (cgltf_size i = 0; i < data->meshes_count; ++i)
+	{
+		CGLTF_ADD_EXTENSION_GROUP(data->meshes[i].extensions, data->meshes[i].extensions_count);
+		for (cgltf_size j = 0; j < data->meshes[i].primitives_count; ++j)
+			CGLTF_ADD_EXTENSION_GROUP(data->meshes[i].primitives[j].extensions, data->meshes[i].primitives[j].extensions_count);
+	}
+	for (cgltf_size i = 0; i < data->nodes_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->nodes[i].extensions, data->nodes[i].extensions_count);
+	for (cgltf_size i = 0; i < data->scenes_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->scenes[i].extensions, data->scenes[i].extensions_count);
+	for (cgltf_size i = 0; i < data->skins_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->skins[i].extensions, data->skins[i].extensions_count);
+	for (cgltf_size i = 0; i < data->cameras_count; ++i)
+		CGLTF_ADD_EXTENSION_GROUP(data->cameras[i].extensions, data->cameras[i].extensions_count);
+	for (cgltf_size i = 0; i < data->animations_count; ++i)
+	{
+		CGLTF_ADD_EXTENSION_GROUP(data->animations[i].extensions, data->animations[i].extensions_count);
+		for (cgltf_size j = 0; j < data->animations[i].samplers_count; ++j)
+			CGLTF_ADD_EXTENSION_GROUP(data->animations[i].samplers[j].extensions, data->animations[i].samplers[j].extensions_count);
+		for (cgltf_size j = 0; j < data->animations[i].channels_count; ++j)
+			CGLTF_ADD_EXTENSION_GROUP(data->animations[i].channels[j].extensions, data->animations[i].channels[j].extensions_count);
+	}
+
+#undef CGLTF_ADD_EXTENSION_GROUP
+
+	for (cgltf_size g = 0; g < group_count; ++g)
+	{
+		for (cgltf_size i = 0; i < group_counts[g]; ++i)
+		{
+			const cgltf_extension* extension = groups[g] + i;
+			if (!extension->name || !extension->data)
+			{
+				continue;
+			}
+			if (cgltf_is_known_extension_name(extension->name))
+			{
+				continue;
+			}
+			if (cgltf_string_in_array((const char* const*)*emitted, *emitted_count, extension->name))
+			{
+				continue;
+			}
+
+			const char** grown = (const char**)realloc((void*)*emitted, (*emitted_count + 1) * sizeof(const char*));
+			if (!grown)
+			{
+				continue;
+			}
+			grown[*emitted_count] = extension->name;
+			*emitted = grown;
+			++(*emitted_count);
+
+			cgltf_write_stritem(context, extension->name);
+		}
+	}
+
+	free(group_counts);
+	free(groups);
+}
+
 static void cgltf_write_stritem(cgltf_write_context* context, const char* item)
 {
 	cgltf_write_indent(context);
@@ -466,6 +763,7 @@ static void cgltf_write_asset(cgltf_write_context* context, const cgltf_asset* a
 	cgltf_write_strprop(context, "version", asset->version);
 	cgltf_write_strprop(context, "min_version", asset->min_version);
 	cgltf_write_extras(context, &asset->extras);
+	cgltf_write_extension_container(context, asset->extensions, asset->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -499,7 +797,7 @@ static void cgltf_write_primitive(cgltf_write_context* context, const cgltf_prim
 	}
 	cgltf_write_extras(context, &prim->extras);
 
-	if (prim->has_draco_mesh_compression || prim->mappings_count > 0)
+	if (prim->has_draco_mesh_compression || prim->mappings_count > 0 || cgltf_has_unprocessed_extensions(prim->extensions, prim->extensions_count))
 	{
 		cgltf_write_line(context, "\"extensions\": {");
 
@@ -545,6 +843,8 @@ static void cgltf_write_primitive(cgltf_write_context* context, const cgltf_prim
 			cgltf_write_line(context, "}");
 		}
 
+		cgltf_write_unprocessed_extensions(context, prim->extensions, prim->extensions_count);
+
 		cgltf_write_line(context, "}");
 	}
 }
@@ -569,6 +869,7 @@ static void cgltf_write_mesh(cgltf_write_context* context, const cgltf_mesh* mes
 	}
 
 	cgltf_write_extras(context, &mesh->extras);
+	cgltf_write_extension_container(context, mesh->extensions, mesh->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -582,6 +883,7 @@ static void cgltf_write_buffer_view(cgltf_write_context* context, const cgltf_bu
 	cgltf_write_sizeprop(context, "byteStride", view->stride, 0);
 	// NOTE: We skip writing "target" because the spec says its usage can be inferred.
 	cgltf_write_extras(context, &view->extras);
+	cgltf_write_extension_container(context, view->extensions, view->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -593,6 +895,7 @@ static void cgltf_write_buffer(cgltf_write_context* context, const cgltf_buffer*
 	cgltf_write_strprop(context, "uri", buffer->uri);
 	cgltf_write_sizeprop(context, "byteLength", buffer->size, (cgltf_size)-1);
 	cgltf_write_extras(context, &buffer->extras);
+	cgltf_write_extension_container(context, buffer->extensions, buffer->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -687,7 +990,7 @@ static void cgltf_write_material(cgltf_write_context* context, const cgltf_mater
 		cgltf_write_line(context, "}");
 	}
 
-	if (material->unlit || material->has_pbr_specular_glossiness || material->has_clearcoat || material->has_ior || material->has_specular || material->has_transmission || material->has_sheen || material->has_volume || material->has_emissive_strength || material->has_iridescence || material->has_anisotropy || material->has_dispersion || material->has_diffuse_transmission)
+	if (material->unlit || material->has_pbr_specular_glossiness || material->has_clearcoat || material->has_ior || material->has_specular || material->has_transmission || material->has_sheen || material->has_volume || material->has_emissive_strength || material->has_iridescence || material->has_anisotropy || material->has_dispersion || material->has_diffuse_transmission || cgltf_has_unprocessed_extensions(material->extensions, material->extensions_count))
 	{
 		cgltf_write_line(context, "\"extensions\": {");
 		if (material->has_clearcoat)
@@ -827,6 +1130,7 @@ static void cgltf_write_material(cgltf_write_context* context, const cgltf_mater
 			cgltf_write_floatprop(context, "dispersion", params->dispersion, 0.f);
 			cgltf_write_line(context, "}");
 		}
+		cgltf_write_unprocessed_extensions(context, material->extensions, material->extensions_count);
 		cgltf_write_line(context, "}");
 	}
 
@@ -850,6 +1154,7 @@ static void cgltf_write_image(cgltf_write_context* context, const cgltf_image* i
 	CGLTF_WRITE_IDXPROP("bufferView", image->buffer_view, context->data->buffer_views);
 	cgltf_write_strprop(context, "mimeType", image->mime_type);
 	cgltf_write_extras(context, &image->extras);
+	cgltf_write_extension_container(context, image->extensions, image->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -860,7 +1165,7 @@ static void cgltf_write_texture(cgltf_write_context* context, const cgltf_textur
 	CGLTF_WRITE_IDXPROP("source", texture->image, context->data->images);
 	CGLTF_WRITE_IDXPROP("sampler", texture->sampler, context->data->samplers);
 
-	if (texture->has_basisu || texture->has_webp)
+	if (texture->has_basisu || texture->has_webp || cgltf_has_unprocessed_extensions(texture->extensions, texture->extensions_count))
 	{
 		cgltf_write_line(context, "\"extensions\": {");
 		if (texture->has_basisu)
@@ -877,6 +1182,7 @@ static void cgltf_write_texture(cgltf_write_context* context, const cgltf_textur
 			CGLTF_WRITE_IDXPROP("source", texture->webp_image, context->data->images);
 			cgltf_write_line(context, "}");
 		}
+		cgltf_write_unprocessed_extensions(context, texture->extensions, texture->extensions_count);
 		cgltf_write_line(context, "}");
 	}
 	cgltf_write_extras(context, &texture->extras);
@@ -891,6 +1197,7 @@ static void cgltf_write_skin(cgltf_write_context* context, const cgltf_skin* ski
 	CGLTF_WRITE_IDXARRPROP("joints", skin->joints_count, skin->joints, context->data->nodes);
 	cgltf_write_strprop(context, "name", skin->name);
 	cgltf_write_extras(context, &skin->extras);
+	cgltf_write_extension_container(context, skin->extensions, skin->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -945,6 +1252,7 @@ static void cgltf_write_animation_sampler(cgltf_write_context* context, const cg
 	CGLTF_WRITE_IDXPROP("input", animation_sampler->input, context->data->accessors);
 	CGLTF_WRITE_IDXPROP("output", animation_sampler->output, context->data->accessors);
 	cgltf_write_extras(context, &animation_sampler->extras);
+	cgltf_write_extension_container(context, animation_sampler->extensions, animation_sampler->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -957,6 +1265,7 @@ static void cgltf_write_animation_channel(cgltf_write_context* context, const cg
 	cgltf_write_path_type(context, "path", animation_channel->target_path);
 	cgltf_write_line(context, "}");
 	cgltf_write_extras(context, &animation_channel->extras);
+	cgltf_write_extension_container(context, animation_channel->extensions, animation_channel->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -984,6 +1293,7 @@ static void cgltf_write_animation(cgltf_write_context* context, const cgltf_anim
 		cgltf_write_line(context, "]");
 	}
 	cgltf_write_extras(context, &animation->extras);
+	cgltf_write_extension_container(context, animation->extensions, animation->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -996,6 +1306,7 @@ static void cgltf_write_sampler(cgltf_write_context* context, const cgltf_sample
 	cgltf_write_intprop(context, "wrapS", sampler->wrap_s, 10497);
 	cgltf_write_intprop(context, "wrapT", sampler->wrap_t, 10497);
 	cgltf_write_extras(context, &sampler->extras);
+	cgltf_write_extension_container(context, sampler->extensions, sampler->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -1026,7 +1337,7 @@ static void cgltf_write_node(cgltf_write_context* context, const cgltf_node* nod
 		CGLTF_WRITE_IDXPROP("skin", node->skin, context->data->skins);
 	}
 
-	bool has_extension = node->light || (node->has_mesh_gpu_instancing && node->mesh_gpu_instancing.attributes_count > 0);
+	bool has_extension = node->light || (node->has_mesh_gpu_instancing && node->mesh_gpu_instancing.attributes_count > 0) || cgltf_has_unprocessed_extensions(node->extensions, node->extensions_count);
 	if(has_extension)
 		cgltf_write_line(context, "\"extensions\": {");
 
@@ -1059,7 +1370,10 @@ static void cgltf_write_node(cgltf_write_context* context, const cgltf_node* nod
 	}
 
 	if (has_extension)
+	{
+		cgltf_write_unprocessed_extensions(context, node->extensions, node->extensions_count);
 		cgltf_write_line(context, "}");
+	}
 
 	if (node->weights_count > 0)
 	{
@@ -1081,6 +1395,7 @@ static void cgltf_write_scene(cgltf_write_context* context, const cgltf_scene* s
 	cgltf_write_strprop(context, "name", scene->name);
 	CGLTF_WRITE_IDXARRPROP("nodes", scene->nodes_count, scene->nodes, context->data->nodes);
 	cgltf_write_extras(context, &scene->extras);
+	cgltf_write_extension_container(context, scene->extensions, scene->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -1119,6 +1434,7 @@ static void cgltf_write_accessor(cgltf_write_context* context, const cgltf_acces
 		cgltf_write_line(context, "}");
 	}
 	cgltf_write_extras(context, &accessor->extras);
+	cgltf_write_extension_container(context, accessor->extensions, accessor->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -1155,11 +1471,12 @@ static void cgltf_write_camera(cgltf_write_context* context, const cgltf_camera*
 			cgltf_write_floatprop(context, "zfar", camera->data.perspective.zfar, -1.0f);
 		}
 
-		cgltf_write_floatprop(context, "znear", camera->data.perspective.znear, -1.0f);
-		cgltf_write_extras(context, &camera->data.perspective.extras);
-		cgltf_write_line(context, "}");
+			cgltf_write_floatprop(context, "znear", camera->data.perspective.znear, -1.0f);
+			cgltf_write_extras(context, &camera->data.perspective.extras);
+			cgltf_write_line(context, "}");
 	}
 	cgltf_write_extras(context, &camera->extras);
+	cgltf_write_extension_container(context, camera->extensions, camera->extensions_count);
 	cgltf_write_line(context, "}");
 }
 
@@ -1485,7 +1802,7 @@ cgltf_size cgltf_write(const cgltf_options* options, char* buffer, cgltf_size si
 		cgltf_write_line(context, "]");
 	}
 
-	if (data->lights_count > 0 || data->variants_count > 0)
+	if (data->lights_count > 0 || data->variants_count > 0 || cgltf_has_unprocessed_extensions(data->data_extensions, data->data_extensions_count))
 	{
 		cgltf_write_line(context, "\"extensions\": {");
 
@@ -1513,13 +1830,22 @@ cgltf_size cgltf_write(const cgltf_options* options, char* buffer, cgltf_size si
 			cgltf_write_line(context, "}");
 		}
 
+		cgltf_write_unprocessed_extensions(context, data->data_extensions, data->data_extensions_count);
+
 		cgltf_write_line(context, "}");
 	}
 
-	if (context->extension_flags != 0)
+	const char** emitted_names = NULL;
+	cgltf_size emitted_count = 0;
+
+	if (context->extension_flags != 0 || cgltf_data_has_unprocessed_extensions(data))
 	{
 		cgltf_write_line(context, "\"extensionsUsed\": [");
-		cgltf_write_extensions(context, context->extension_flags);
+		if (context->extension_flags != 0)
+		{
+			cgltf_write_extensions(context, context->extension_flags);
+		}
+		cgltf_write_unprocessed_extension_names(context, &emitted_names, &emitted_count);
 		cgltf_write_line(context, "]");
 	}
 
@@ -1527,8 +1853,17 @@ cgltf_size cgltf_write(const cgltf_options* options, char* buffer, cgltf_size si
 	{
 		cgltf_write_line(context, "\"extensionsRequired\": [");
 		cgltf_write_extensions(context, context->required_extension_flags);
+		for (cgltf_size i = 0; i < data->extensions_required_count; ++i)
+		{
+			if (data->extensions_required[i] && !cgltf_is_known_extension_name(data->extensions_required[i]))
+			{
+				cgltf_write_stritem(context, data->extensions_required[i]);
+			}
+		}
 		cgltf_write_line(context, "]");
 	}
+
+	free((void*)emitted_names);
 
 	cgltf_write_extras(context, &data->extras);
 

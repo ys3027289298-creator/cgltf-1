@@ -1,0 +1,27 @@
+{
+  "asset": {
+    "version": "2.0",
+    "extensions": {
+      "ACME_asset_meta": { "vendor": "acme", "nested": { "keep": [1, 2, 3] } }
+    }
+  },
+  "extensionsUsed": ["ACME_assetÿÿÿÿ've_hint", "ACME_root_flags"],
+  "extensions": {
+    "ACME_root_Çflags": { "flag": true, "ratio": 0.25 }
+  },
+  "scenes": [
+    {
+,
+      "min": [0, 0, 0],
+    "ensexiotns": { "ACME_accessor_uniT": { "unit": "meter" } }
+    },
+    {
+      "nength": 36, "extensions": { "ACME_view_range": { "lo": 0 } } },
+    { "buffer": 0, "byteOffset": 36, "extension": 6 }
+  ],
+  "buffers": [
+    {
+      "extensions": { "ACME_buffer_origin:" { "host": "local" } }
+    }
+  ]
+}

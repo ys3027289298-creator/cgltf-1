@@ -1,0 +1,77 @@
+{
+  "asset": {
+    "version": "2.0",
+    "extensions": {
+      "ACME_asset_meta": { "vendor": "acme", "nested": { "keep": [1, 2, 3] } }
+    }
+  },
+  "extensionsUsed": ["ACME_asset_meta", "ACME_node_tag", "ACME_material_tint", "ACME_primitive_hint", "ACME_root_flags"],
+  "extensions": {
+    "ACME_root_flags": { "flag": true, "ratio": 0.25 }
+  },
+  "scenes": [
+    {
+      "name": "scene0",
+      "nodes": [0],
+      "extensions": { "ACME_scene_note": { "note": "s" } }
+    }
+  ],
+  "nodes": [
+    {
+      "name": "node0",
+      "mesh": 0,
+      "extensions": { "ACME_node_tag": { "id": 42, "label": "hero" } }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "mesh0",
+      "primitives": [
+        {
+          "attributes": { "POSITION": 0 },
+          "indices": 1,
+          "material": 0,
+          "extensions": { "ACME_primitive_hint": { "sort": "back-to-front" } }
+        }
+      ],
+      "extensions": { "ACME_mesh_extra": { "weight": 7 } }
+    }
+  ],
+  "materials": [
+    {
+      "name": "mat0",
+      "extensions": { "ACME_material_tint": { "tint": [0.1, 0.2, 0.9] } }
+    }
+  ],
+  "accessors": [
+    {
+      "name": "positions",
+      "componentType": 5126,
+      "count": 3,
+      "type": "VEC3",
+      "min": [0, 0, 0],
+      "max": [1, 1, 0],
+      "bufferView": 0,
+      "extensions": { "ACME_accessor_unit": { "unit": "meter" } }
+    },
+    {
+      "name": "indices",
+      "componentType": 5123,
+      "count": 3,
+      "type": "SCALAR",
+      "bufferView": 1
+    }
+  ],
+  "bufferViews": [
+    { "buffer": 0, "byteOffset": 0, "byteLength": 36, "extensions": { "ACME_view_range": { "lo": 0 } } },
+    { "buffer": 0, "byteOffset": 36, "byteLength": 6 }
+  ],
+  "buffers": [
+    {
+      "name": "buf0",
+      "byteLength": 42,
+      "uri": "data.bin",
+      "extensions": { "ACME_buffer_origin": { "host": "local" } }
+    }
+  ]
+}

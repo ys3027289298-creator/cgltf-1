@@ -1,0 +1,28 @@
+{
+  "asset": { "version": "2.0", "generator": "cgltf-roundtrip" },
+  "extensionsUsed": ["KHR_materials_unlit"],
+  "materials": [
+    {
+      "name": "unlit_mat",
+      "pbrMetallicRoughness": { "baseColorFactor": [0.8, 0.7, 0.6, 1.0] },
+      "extensions": { "KHR_materials_unlit": {} }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "mesh0",
+      "primitives": [ { "attributes": { "POSITION": 0 }, "indices": 1, "material": 0 } ]
+    }
+  ],
+  "nodes": [ { "name": "node0", "mesh": 0 } ],
+  "scenes": [ { "name": "scene0", "nodes": [0] } ],
+  "accessors": [
+    { "name": "positions", "componentType": 5126, "count": 3, "type": "VEC3", "min": [0, 0, 0], "max": [1, 1, 0], "bufferView": 0 },
+    { "name": "indices", "componentType": 5123, "count": 3, "type": "SCALAR", "bufferView": 1 }
+  ],
+  "bufferViews": [
+    { "buffer": 0, "byteOffset": 0, "byteLength": 36 },
+    { "buffer": 0, "byteOffset": 36, "byteLength": 6 }
+  ],
+  "buffers": [ { "name": "buf0", "byteLength": 42, "uri": "data.bin" } ]
+}
